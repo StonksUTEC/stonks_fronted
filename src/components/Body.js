@@ -30,8 +30,6 @@ const VideoBanner = styled.video`
 `;
 
 const VideBannerContainer = styled.div`
-  position: relative;
-  z-index: -1;
   width: 100vw;
   text-align: center;
 `;
@@ -42,31 +40,34 @@ const Description = styled.div`
 `
 const Title = styled.h1`
   color: white;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 400;
   font-family: 'Roboto';
 `;
 const SubTitle = styled.h1`
   color: white;
-  font-size: 2em;
+  font-size: 1.4em;
   font-weight: 300;
   font-family: 'Roboto';
 `;
 
 const Button = styled.button`
   /* Adapt the colors based on primary prop */
-  background: red;
+  background: #CBFA91;
   font-size: 1em;
-  position: fixed;
-  z-index: 2;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid palevioletred;
   border-radius: 3px;
+  border: none;
+  font-family: 'Roboto';
+  font-weight: 500;
+  height: 40px;
+  width: 150px;
+
+  text-transform: uppercase;
   &:hover, &:active, &:focus, &:after { 
     outline: none;
-    border-color: green;
-    background-color: green;
+    background-color: #ACED5A;
   }
 `;
 
@@ -81,8 +82,8 @@ const Body = () => {
           <VideoBanner src={LandingBanner} autoPlay loop muted />
         </VideoBannerWrapper>
         <Description>
-          <Title>La mejor plataforma para aprender</Title>
-          <SubTitle>el mercado de valores</SubTitle>
+          <Title>Lorem ipsum lorem and Lorem is Lorem and no Lorem</Title>
+          <SubTitle>Lorem ipsum and lorem ipsum is lorem ipsum</SubTitle>
         </Description>
         <Button>Registrate</Button>
 
