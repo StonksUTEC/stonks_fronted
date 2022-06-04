@@ -82,11 +82,10 @@ const Body = () => {
           <VideoBanner src={LandingBanner} autoPlay loop muted />
         </VideoBannerWrapper>
         <Description>
-          <Title>Lorem ipsum lorem and Lorem is Lorem and no Lorem</Title>
-          <SubTitle>Lorem ipsum and lorem ipsum is lorem ipsum</SubTitle>
+          <Title>La mejor plataforma para aprender</Title>
+          <SubTitle>la compra y venta de acciones</SubTitle>
         </Description>
         <Button>Registrate</Button>
-
       </VideBannerContainer>
     </div>
   )
