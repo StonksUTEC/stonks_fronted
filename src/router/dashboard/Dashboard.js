@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
-import { style } from '@mui/system';
-import React from 'react'
+import React, { Fragment } from 'react'
 
 const DashboardWrapper = styled.div`
   display: grid;
@@ -45,28 +44,58 @@ const StockBehavior = styled.div`
 `;
 
 const StockWrapper = styled.div`
-  display: grid;
   background-color: black;
+  width: 50em;
+  margin-left: 7em;
+  margin-right: 5em;
 `;
 
 const StockIitle = styled.div`
   color: white;
   font-family: 'Jura';
+  display: flex;
+  justify-content: space-around;
+  height: 4em;
+  align-items: center;
 `;
 
 const StockTileItem = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+`;
+
+const StockRow = styled.div`
+  color: white;
+  font-family: 'Jura';
+  display: flex;
+  justify-content: space-around;
+  height: 3em;
+  align-items: center;
 `;
 
 const StockItem = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
 `;
 
+const StockSellButton = styled.button`
+  background-color: #DCFEC2;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 0 10px;
+  margin-top: 5px;
+  margin-bottom: 4px;
+  margin-left: 10%;
+  height: 30px;
+  width: 4em;
+  outline: none;
+  border-width: 2px;
+  &:hover, &:active, &:focus, &::after{
+    outline: none;
+  }
+`;
 
 const Sections = styled.div`
   margin-top: 6em;
@@ -86,13 +115,12 @@ const SectionItem = styled.div`
 `;
 
 
-
 const Dashboard = () => {
   return (
     <DashboardWrapper>
       <LeftSide>
-          <Title>STONKS</Title>
-          <Input></Input>
+        <Title>STONKS</Title>
+        <Input></Input>
         <Sections>
           <SectionItem>Portfolio</SectionItem>
           <SectionItem>Orders</SectionItem>
@@ -106,8 +134,188 @@ const Dashboard = () => {
         <StockWrapper>
           <StockIitle>
             <StockTileItem>
-              </StockTileItem>            
+              Symbol
+            </StockTileItem>
+            <StockTileItem>
+              Shares
+            </StockTileItem>
+            <StockTileItem>
+              Value
+            </StockTileItem>
+            <StockTileItem>
+              Today's return
+            </StockTileItem>
+            <StockTileItem>
+              Return
+            </StockTileItem>
+            <StockTileItem>
+              Return with sells
+            </StockTileItem>
+            <StockTileItem>
+              Price/Share
+            </StockTileItem>
           </StockIitle>
+          <StockRow>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+          </StockRow>
+          <StockRow>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+          </StockRow>
+          <StockRow>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+          </StockRow>
+          <StockRow>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+          </StockRow>
+          <StockRow>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+          </StockRow>
+          <StockRow>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+          </StockRow>
+          <StockRow>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+            <StockItem>
+              Lorem
+            </StockItem>
+          </StockRow>
         </StockWrapper>
       </RightSide>
     </DashboardWrapper>
