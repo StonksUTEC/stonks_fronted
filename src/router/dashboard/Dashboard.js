@@ -40,7 +40,7 @@ const Input = styled.input`
 `;
 
 const StockBehavior = styled.div`
-  background-color: green;
+  background-color: black;
 `;
 
 const StockWrapper = styled.div`
@@ -89,11 +89,13 @@ const StockSellButton = styled.button`
   margin-bottom: 4px;
   margin-left: 10%;
   height: 30px;
-  width: 4em;
+  width: 6em;
   outline: none;
+  font-weight: 700;
   border-width: 2px;
   &:hover, &:active, &:focus, &::after{
     outline: none;
+    background-color: #ffff;
   }
 `;
 
@@ -114,6 +116,28 @@ const SectionItem = styled.div`
   font-size: 20px;
 `;
 
+const StockSellWrapper = styled.div`
+  background-color: black;
+  display: flex;
+`;
+
+const InputSell = styled.input`
+  border: 1px solid ;
+  border-radius: 5px;
+  padding: 10px 0 10px;
+  margin-top: 5px;
+  color: white;
+  margin-bottom: 4px;
+  margin-left: 10%;
+  height: 30px;
+  width: 4em;
+  outline: none;
+  background-color: #232323;
+  border-width: 2px;
+  &:hover, &:active, &:focus, &::after{
+    outline: none;
+  }
+`;
 
 const Dashboard = () => {
   return (
@@ -154,168 +178,52 @@ const Dashboard = () => {
             <StockTileItem>
               Price/Share
             </StockTileItem>
+            <StockTileItem>
+            </StockTileItem>
+            <StockTileItem>
+            </StockTileItem>
+            <StockTileItem>
+            </StockTileItem>
+            <StockTileItem>
+            </StockTileItem>
           </StockIitle>
-          <StockRow>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-          </StockRow>
-          <StockRow>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-          </StockRow>
-          <StockRow>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-          </StockRow>
-          <StockRow>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-          </StockRow>
-          <StockRow>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-          </StockRow>
-          <StockRow>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-          </StockRow>
-          <StockRow>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-            <StockItem>
-              Lorem
-            </StockItem>
-          </StockRow>
+          {
+            [1,2,3,4,5,6,7,8,9,10].map(i => {
+              return (
+                <StockRow>
+                <StockItem>
+                  UTEC
+                </StockItem>
+                <StockItem>
+                  5
+                </StockItem>
+                <StockItem>
+                  $191.00
+                </StockItem>
+                <StockItem style={{ 'color': '#7FE300' }}>
+                  $4.95(+2.55)
+                </StockItem>
+                <StockItem style={{ 'color': '#7FE300' }}>
+                  $4.95(+2.55)
+                </StockItem>
+                <StockItem style={{ 'color': '#7FE300' }}>
+                  $2.45
+                </StockItem>
+                <StockItem style={{ 'color': '#7FE300' }}>
+                  $12.50
+                </StockItem>
+                <StockSellWrapper>
+                  <InputSell>
+                  
+                  </InputSell>
+                  <StockSellButton type='number'>
+                    Sell
+                  </StockSellButton>
+                </StockSellWrapper>
+              </StockRow>
+              )
+            })
+          }
         </StockWrapper>
       </RightSide>
     </DashboardWrapper>
