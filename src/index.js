@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
+import Buy from './router/buy/Buy';
 import Dashboard from './router/dashboard/Dashboard';
 import Portfolio from './router/portfolio/Portfolio';
 import Sigin from './router/sigin/Sigin';
@@ -14,6 +15,7 @@ const router = <BrowserRouter>
                         <Route path="sigin" element={<Sigin/>} />
                         <Route path="dashboard" element={<Dashboard/>} />
                         <Route path="portfolio" element={<Portfolio/>} />
+                        <Route path="buy" element={<Buy/>} />
                     </Routes>
                 </BrowserRouter>
 ReactDOM.render(router, document.getElementById('root'));

@@ -122,6 +122,7 @@ const StockSellWrapper = styled.div`
 `;
 
 const InputSell = styled.input`
+  text-align: center;
   border: 1px solid ;
   border-radius: 5px;
   padding: 10px 0 10px;
