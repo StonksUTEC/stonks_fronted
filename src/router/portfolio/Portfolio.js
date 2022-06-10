@@ -100,7 +100,7 @@ const Portfolio = () => {
         Authorization: "Token " + cookies.get("Token")
       }
     }
-    axios.get('http://localhost:8000/api/stocks/portafolio/',config)
+    axios.get('http://localhost:8000/api/stocks/portfolio/',config)
     .then(response => {  
       let json = response.data;
       const allEntries = json;

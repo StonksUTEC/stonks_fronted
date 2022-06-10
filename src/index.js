@@ -5,7 +5,7 @@ import App from './App';
 import Catalogue from './router/catalogue/Catalogue';
 import Dashboard from './router/dashboard/Dashboard';
 import Portfolio from './router/portfolio/Portfolio';
-import Sigin from './router/sigin/Sigin';
+import Signin from './router/signin/Signin';
 import Signup from './router/signup/Signup';
 import Order from './router/order/Order';
 
@@ -13,7 +13,7 @@ const router = <BrowserRouter>
                     <Routes> 
                         <Route path="/" element={<App />} />
                         <Route path="signup" element={<Signup/>} />
-                        <Route path="signin" element={<Sigin/>} />
+                        <Route path="signin" element={<Signin/>} />
                         <Route path="dashboard" element={<Dashboard/>} />
                         <Route path="portfolio" element={<Portfolio/>} />
                         <Route path="order" element={<Order/>} />
