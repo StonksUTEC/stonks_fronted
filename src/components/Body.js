@@ -2,6 +2,7 @@ import React from 'react';
 import "./Body.css";
 import styled from '@emotion/styled';
 import LandingBanner from "../img/banner_landing.mp4";
+import { Link } from 'react-router-dom';
 
 const VideoBannerWrapper = styled.div`
   display: grid;
@@ -85,7 +86,9 @@ const Body = () => {
           <Title>La mejor plataforma para aprender</Title>
           <SubTitle>la compra y venta de acciones</SubTitle>
         </Description>
-        <Button>Registrate</Button>
+        <Link to="signup">
+          <Button>Registrate</Button>
+        </Link>
       </VideBannerContainer>
     </div>
   )

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createRoot} from 'react-dom/client';
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import Buy from './router/buy/Buy';
 import Dashboard from './router/dashboard/Dashboard';
@@ -18,4 +19,7 @@ const router = <BrowserRouter>
                         <Route path="buy" element={<Buy/>} />
                     </Routes>
                 </BrowserRouter>
-ReactDOM.render(router, document.getElementById('root'));
+const root = createRoot(
+    document.getElementById('root')
+  );
+root.render(router);

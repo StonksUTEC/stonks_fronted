@@ -1,6 +1,18 @@
 import React from 'react'
 import Logo from "../img/logo.png";
+import { Link } from "react-router-dom";
 import "./Header.css";
+import styled from '@emotion/styled';
+
+const ToggleItem = styled.div`
+    color: white;
+    font-family: Roboto;
+    text-decoration: none;
+    &::after, :active, :hover :link {
+        text-decoration: none;
+
+    }
+`;
 
 const Header = () => {
     return (
@@ -18,16 +30,26 @@ const Header = () => {
             {/* menuitems */}
             <div className='header__menuitems'>
                 <div className='header__menuitem'>
-                Portafolio
+                    <Link style={{ 'textDecoration': 'none' }} to="/dashboard">
+                        <ToggleItem>
+                            Dashboard
+                        </ToggleItem>
+
+                    </Link>
                 </div>
                 <div className='header__menuitem'>
-                Stocks
+                    <Link style={{ 'textDecoration': 'none' }} to="sigin">
+                        <ToggleItem>
+                            Sigin
+                        </ToggleItem>
+                    </Link>
                 </div>
                 <div className='header__menuitem'>
-                Trading
-                </div>
-                <div className='header__menuitem'>
-                Learn
+                    <Link style={{ 'textDecoration': 'none' }} to="signup">
+                        <ToggleItem>
+                            Signup
+                        </ToggleItem>
+                    </Link>
                 </div>
             </div>
         </div>
