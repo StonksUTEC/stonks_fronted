@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { Button } from '@mui/material';
 import React from 'react'
 import Banner from '../../img/banner.jpg'
+import {useCookies, CookiesProvider} from 'react-cookie';
 
 const SiginWrapper = styled.div`
   display: grid;
@@ -26,7 +27,7 @@ const LeftSide = styled.div`
   }
 `;
 
-const FormWrapper = styled.div`
+const FormWrapper = styled.form`
   margin-left: 10px;
   margin: 20% 0em 0px 40px;
   padding: 20px;
@@ -63,7 +64,30 @@ const RightSide = styled.div`
   background-color: white;
 `;
 
+const axios = require('axios');
+
 const Sigin = () => {
+  const [cookies, setCookie] = useCookies(['user']);
+
+  const SubmitLogin = (event) => {
+    event.preventDefault();
+    console.log("TEST");
+    const dni = document.getElementById('dni').value;
+    const password = document.getElementById('password').value;
+    const data = {
+      'password': password, 'username': dni
+    }
+    console.log(data);
+    axios.post('http://localhost:8000/api/auth/login/', data)
+      .then(response => {
+        console.log(response);
+        let json = response.data;
+        setCookie("Token", json.token, {path: '/'});
+        console.log("Logged In");
+      }).catch(error => {
+        console.log(error)
+      });
+  }
   return (
     <SiginWrapper>
       {/* Left Side */}
@@ -71,16 +95,16 @@ const Sigin = () => {
       </LeftSide>
       {/* Rigth Side */}
       <RightSide>
-        <FormWrapper>
+        <FormWrapper onSubmit={SubmitLogin}>
           <Title>Sign In to Stonks</Title>
-          <Label>Email</Label>
-          <Input type="email" />
+          <Label>DNI</Label>
+          <Input id="dni" type={'text'}/>
 
           <Label>Password</Label>
-          <Input type="password" />
+          <Input id="password" type="password" />
           <br/>
           <br/>
-          <Button color='secondary' variant="contained">Login</Button>
+          <Button  id={'submit-button'} type={"submit"} color='secondary' variant="contained">Login</Button>
         </FormWrapper>
       </RightSide>
     </SiginWrapper>

@@ -71,7 +71,6 @@ const axios = require('axios');
 
 
 const Sigup = () => {
-
   const [cookies, setCookie] = useCookies(['user']);
 
   const SubmitCredentials = (event) => {
@@ -84,13 +83,14 @@ const Sigup = () => {
     const data = {
       'names': names, 'password': password, 'email': email,'dni': dni,'lastname':lastname
     }
-    console.log(data);
+    //console.log(data);
     axios.post('http://localhost:8000/api/auth/register/', data)
       .then(response => {
         let json = response.data;
         setCookie("Token", json.token, {path: '/'});
+        console.log("Registered");
       }).catch(error => {
-        console.log(error)
+        console.log(error);
       });
   }
   return (
