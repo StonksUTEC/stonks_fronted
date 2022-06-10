@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { Button } from '@mui/material';
 import React from 'react'
 import Banner from '../../img/banner.jpg'
+import {useCookies, CookiesProvider} from 'react-cookie';
 
 const SiginWrapper = styled.div`
   display: grid;
@@ -64,32 +65,38 @@ const RightSide = styled.div`
   background-color: white;
 `;
 
+
 const axios = require('axios');
 
-const SubmitCredentials = (event) => {
-  event.preventDefault();
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-  const email = document.getElementById('email').value;
-  console.log(username);
-  console.log(password);
-  console.log(email);
-  const data = {
-    'username': username, 'password': password, 'email': email
-  }
-  axios.post('http://127.0.0.1:8000/accounts/api/auth/register', data)
-    .then(r => r.json()).then(json => {
-      console.log("OUTPUT");
-      console.log(json)
-      // setCookie("token", json['token'], 1)
-    }).catch(error => {
-      console.log(error)
-    })
-}
+
 
 const Sigup = () => {
+
+  const [cookies, setCookie] = useCookies(['user']);
+
+  const SubmitCredentials = (event) => {
+    event.preventDefault();
+    const names = document.getElementById('names').value;
+    const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value;
+    const dni = document.getElementById('dni').value;
+    const lastname = document.getElementById('lastname').value;
+    const data = {
+      'names': names, 'password': password, 'email': email,'dni': dni,'lastname':lastname
+    }
+    axios.post('http://localhost:8000/api/auth/register/', data)
+      .then(r => r.json()).then(json => {
+        let token = json['token'];
+        document.cookie = `Token=${token}`;
+        // setCookie("Token", json['token'], {path: '/'});
+      }).catch(error => {
+        console.log(error)
+      });
+    console.log(document.cookie);
+  }
   return (
-    <SiginWrapper>
+    <CookiesProvider>
+      <SiginWrapper>
       {/* Left Side */}
       <LeftSide>
       </LeftSide>
@@ -97,14 +104,21 @@ const Sigup = () => {
       <RightSide>
         <FormWrapper onSubmit={SubmitCredentials}>
           <Title>Sign up</Title>
-          <Label>Username</Label>
-          <Input name="username" id="username" type="text" />
+
+          <Label>Email</Label>
+          <Input id="email" type={'email'} />
 
           <Label>Password</Label>
           <Input id="password" type="password" />
 
-          <Label>Email</Label>
-          <Input id="email" type={'email'} />
+          <Label>Names</Label>
+          <Input id="names" type={'text'} />
+
+          <Label>Lastname</Label>
+          <Input id="lastname" type={'text'} />
+
+          <Label>DNI</Label>
+          <Input id="dni" type={'text'} />
 
           <br />
           <br />
@@ -112,6 +126,7 @@ const Sigup = () => {
         </FormWrapper>
       </RightSide>
     </SiginWrapper>
+    </CookiesProvider>
   )
 }
 

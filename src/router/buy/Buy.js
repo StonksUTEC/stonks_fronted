@@ -160,6 +160,9 @@ const Buy = () => {
               Symbol
             </StockTileItem>
             <StockTileItem>
+              Type
+            </StockTileItem>
+            <StockTileItem>
               Stock Price
             </StockTileItem>
           </StockIitle>
@@ -176,6 +179,9 @@ const Buy = () => {
                   </StockItem>
                   <StockItem>
                     $100
+                  </StockItem>
+                  <StockItem>
+                    Lorem
                   </StockItem>
                   <StockSellWrapper>
                     <InputSell>
