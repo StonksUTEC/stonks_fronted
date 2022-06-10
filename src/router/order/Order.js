@@ -171,9 +171,12 @@ const OrderBlockTitle = styled.h3`
 
 const InternalBlock = styled.div`
   margin-top: 2em;
-  background-color: red;
+  background-color: black;
   height: max-content;
-  text-align: center;
+`;
+const Label = styled.label`
+  display: block;
+  color:white;
 `;
 
 const OrderConfirmation = () => {
@@ -184,6 +187,7 @@ const OrderConfirmation = () => {
           New Order
         </OrderBlockTitle>
         <InternalBlock>
+          <Label>Email</Label>
           <Input placeholder={'Company Ruc'}></Input>
           <Input placeholder={'Quantity'}></Input>
           <Input placeholder={'Price'}></Input>
