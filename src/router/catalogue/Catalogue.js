@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import CompanyCards from './components/CompanyCards'
 
 const BuyWrapper = styled.div`
-    display: grid;
+  display: grid;
   grid-template-columns: 0.2fr 1fr;
   height: 100vh;
   width: 100vw;
@@ -41,45 +42,10 @@ const StockIitle = styled.div`
 const StockTileItem = styled.div`
   height: 40px;
   display: flex;
+  margin: auto;
   align-items: center;
 `;
 
-const StockRow = styled.div`
-  color: white;
-  font-family: 'Jura';
-  display: flex;
-  justify-content: space-around;
-  height: 4em;
-  align-items: center;
-`;
-
-const StockItem = styled.div`
-  height: 40px;
-  display: flex;
-  align-items: center;
-  width: 10em;
-  font-size: small;
-  text-align: center;
-`;
-
-const StockSellButton = styled.button`
-  background-color: #DCFEC2;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 0 10px;
-  margin-top: 5px;
-  margin-bottom: 4px;
-  margin-left: 10%;
-  height: 30px;
-  width: 6em;
-  outline: none;
-  font-weight: 700;
-  border-width: 2px;
-  &:hover, &:active, &:focus, &::after{
-    outline: none;
-    background-color: #ffff;
-  }
-`;
 
 const Sections = styled.div`
   margin-top: 6em;
@@ -92,29 +58,6 @@ const SectionItem = styled.div`
   font-size: 20px;
 `;
 
-const StockSellWrapper = styled.div`
-  background-color: black;
-  display: flex;
-`;
-
-const InputSell = styled.input`
-  text-align: center;
-  border: 1px solid ;
-  border-radius: 5px;
-  padding: 10px 0 10px;
-  margin-top: 5px;
-  color: white;
-  margin-bottom: 4px;
-  margin-left: 10%;
-  height: 30px;
-  width: 4em;
-  outline: none;
-  background-color: #232323;
-  border-width: 2px;
-  &:hover, &:active, &:focus, &::after{
-    outline: none;
-  }
-`;
 const Title = styled.div`
   margin: 10px;
   text-align: center;
@@ -138,7 +81,29 @@ const Input = styled.input`
     outline: none;
   }
 `;
-const Buy = () => {
+
+const axios = require('axios');
+
+const Catalogue = () => {
+
+  const [companies, getCompanies] = useState('');
+
+  useEffect( () => {
+    getAllCompanies();
+  }, []);
+
+  const getAllCompanies = () => {
+    axios.get('http://localhost:8000/api/stocks/companies/')
+    .then(response => {  
+      let json = response.data;
+      const allCompanies = json;
+      console.log(allCompanies);
+      getCompanies(allCompanies);
+    }).catch(error => {
+      console.log(error);
+    });
+  }
+
   return (
     <BuyWrapper>
       <LeftSide>
@@ -154,50 +119,26 @@ const Buy = () => {
         <StockWrapper>
           <StockIitle>
             <StockTileItem>
-              Business
+              RUC
+            </StockTileItem>
+            <StockTileItem>
+              Name
             </StockTileItem>
             <StockTileItem>
               Symbol
             </StockTileItem>
             <StockTileItem>
-              Type
-            </StockTileItem>
-            <StockTileItem>
               Stock Price
             </StockTileItem>
+            <StockTileItem>
+              Order
+            </StockTileItem>
           </StockIitle>
-          {
-            
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => {
-              return (
-                <StockRow>
-                  <StockItem>
-                    University of Engineering and Technology
-                  </StockItem>
-                  <StockItem>
-                    UTEC
-                  </StockItem>
-                  <StockItem>
-                    $100
-                  </StockItem>
-                  <StockItem>
-                    Lorem
-                  </StockItem>
-                  <StockSellWrapper>
-                    <InputSell>
-                    </InputSell>
-                    <StockSellButton type='number'>
-                      Buy
-                    </StockSellButton>
-                  </StockSellWrapper>
-                </StockRow>
-              )
-            })
-          }
+          <CompanyCards companies={companies}/>
         </StockWrapper>
       </RightSide>
     </BuyWrapper>
   )
 }
 
-export default Buy
+export default Catalogue

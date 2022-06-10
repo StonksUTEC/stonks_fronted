@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot} from 'react-dom/client';
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
-import Buy from './router/buy/Buy';
+import Catalogue from './router/catalogue/Catalogue';
 import Dashboard from './router/dashboard/Dashboard';
 import Portfolio from './router/portfolio/Portfolio';
 import Sigin from './router/sigin/Sigin';
@@ -16,8 +16,8 @@ const router = <BrowserRouter>
                         <Route path="sigin" element={<Sigin/>} />
                         <Route path="dashboard" element={<Dashboard/>} />
                         <Route path="portfolio" element={<Portfolio/>} />
-                        <Route path="buy" element={<Buy/>} />
                         <Route path="order" element={<Order/>} />
+                        <Route path="catalogue" element={<Catalogue/>} />
                     </Routes>
                 </BrowserRouter>
 const root = createRoot(
