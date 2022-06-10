@@ -84,15 +84,14 @@ const Sigup = () => {
     const data = {
       'names': names, 'password': password, 'email': email,'dni': dni,'lastname':lastname
     }
+    console.log(data);
     axios.post('http://localhost:8000/api/auth/register/', data)
-      .then(r => r.json()).then(json => {
-        let token = json['token'];
-        document.cookie = `Token=${token}`;
-        // setCookie("Token", json['token'], {path: '/'});
+      .then(response => {
+        let json = response.data;
+        setCookie("Token", json.token, {path: '/'});
       }).catch(error => {
         console.log(error)
       });
-    console.log(document.cookie);
   }
   return (
     <CookiesProvider>
