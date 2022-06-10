@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { Button } from '@mui/material';
 import React from 'react'
 import Banner from '../../img/banner.jpg'
-import {useCookies, CookiesProvider} from 'react-cookie';
+import Cookies from 'universal-cookie';
 
 const SiginWrapper = styled.div`
   display: grid;
@@ -71,7 +71,7 @@ const axios = require('axios');
 
 
 const Sigup = () => {
-  const [cookies, setCookie] = useCookies(['user']);
+  const cookies = new Cookies();
 
   const SubmitCredentials = (event) => {
     event.preventDefault();
@@ -87,14 +87,14 @@ const Sigup = () => {
     axios.post('http://localhost:8000/api/auth/register/', data)
       .then(response => {
         let json = response.data;
-        setCookie("Token", json.token, {path: '/'});
+        cookies.set("Token", json.token, {path: '/'});
         console.log("Registered");
       }).catch(error => {
         console.log(error);
       });
   }
   return (
-    <CookiesProvider>
+
       <SiginWrapper>
       {/* Left Side */}
       <LeftSide>
@@ -125,7 +125,6 @@ const Sigup = () => {
         </FormWrapper>
       </RightSide>
     </SiginWrapper>
-    </CookiesProvider>
   )
 }
 

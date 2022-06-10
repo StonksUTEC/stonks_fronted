@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { Button } from '@mui/material';
 import React from 'react'
 import Banner from '../../img/banner.jpg'
-import {useCookies, CookiesProvider} from 'react-cookie';
+import Cookies from 'universal-cookie';
 
 const SiginWrapper = styled.div`
   display: grid;
@@ -67,7 +67,7 @@ const RightSide = styled.div`
 const axios = require('axios');
 
 const Sigin = () => {
-  const [cookies, setCookie] = useCookies(['user']);
+  const cookies = new Cookies();
 
   const SubmitLogin = (event) => {
     event.preventDefault();
@@ -82,7 +82,7 @@ const Sigin = () => {
       .then(response => {
         console.log(response);
         let json = response.data;
-        setCookie("Token", json.token, {path: '/'});
+        cookies.set("Token", json.token, {path: '/'});
         console.log("Logged In");
       }).catch(error => {
         console.log(error)

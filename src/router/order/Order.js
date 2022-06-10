@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
+import { Button } from '@mui/material';
 import React from 'react'
+import Cookies from 'universal-cookie';
 
 const BuyWrapper = styled.div`
     display: grid;
@@ -128,7 +130,7 @@ const Input = styled.input`
   margin-top: 5px;
   color: white;
   padding-left: 20px;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   height: 30px;
   width: 40vh;
   outline: none;
@@ -151,8 +153,8 @@ const OrderWrapper = styled.div`
 
 const OrderBlock = styled.div`
   background-color: black;
-  width: 65vh;
-  height: 60vh;
+  width: 75vh;
+  height: 70vh;
   text-align: center;
   color: white;
   border: 1px solid white;
@@ -169,25 +171,62 @@ const OrderBlockTitle = styled.h3`
   margin: 30px;
 `;
 
-const InternalBlock = styled.div`
+const InternalBlock = styled.form`
   margin-top: 2em;
-  background-color: red;
+  background-color: black;
   height: max-content;
-  text-align: center;
+`;
+const Label = styled.label`
+  display: block;
+  color:white;
 `;
 
+const axios = require('axios');
+
+
 const OrderConfirmation = () => {
+  const SubmitOrders = (event) => {
+    event.preventDefault();
+    const cookies = new Cookies();
+    const ruc = document.getElementById('ruc').value;
+    const quantity = document.getElementById('quantity').value;
+    const price = document.getElementById('price').value;
+    const transaction = document.getElementById('transaction').value;
+    const data = {
+      'company_ruc': ruc, 'quantity': quantity, 'price': price,'transaction_type': transaction
+    }
+    const config = {
+      headers: {
+        post:{  
+          Authorization: "Token " + cookies.get("Token")
+        }
+      }
+    }
+    console.log(config);
+    axios.post('http://localhost:8000/api/stocks/new-order/', data, config)
+      .then(response => {
+        let json = response.data;
+        console.log(json);
+        console.log("Order Registered");
+      }).catch(error => {
+        console.log(error);
+      });
+  }
+
   return (
     <OrderWrapper>
       <OrderBlock>
         <OrderBlockTitle>
           New Order
         </OrderBlockTitle>
-        <InternalBlock>
-          <Input placeholder={'Company Ruc'}></Input>
-          <Input placeholder={'Quantity'}></Input>
-          <Input placeholder={'Price'}></Input>
-          <Input placeholder={'Transaction type'}></Input>
+        <InternalBlock onSubmit={SubmitOrders}>
+          <Input id="ruc" placeholder={'Company Ruc'}></Input>
+          <Input id="quantity" placeholder={'Quantity'}></Input>
+          <Input id="price" placeholder={'Price'}></Input>
+          <Input id="transaction" placeholder={'Transaction type'}></Input>
+          <br />
+          <br />
+          <Button  id={'submit-button'} type={"submit"} color='secondary' variant="contained">Order</Button>
         </InternalBlock>
       </OrderBlock>   
     </OrderWrapper>);
