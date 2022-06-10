@@ -220,9 +220,13 @@ const OrderConfirmation = () => {
           New Order
         </OrderBlockTitle>
         <InternalBlock onSubmit={SubmitOrders}>
+          <Label>Company RUC:</Label>
           <Input id="ruc" placeholder={'Company Ruc'}></Input>
+          <Label>Quantity:</Label>
           <Input id="quantity" placeholder={'Quantity'}></Input>
+          <Label>Price:</Label>
           <Input id="price" placeholder={'Price'}></Input>
+          <Label>Transaction type:</Label>
           <Input id="transaction" placeholder={'Transaction type'}></Input>
           <br />
           <br />
