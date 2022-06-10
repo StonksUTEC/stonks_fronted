@@ -13,7 +13,7 @@ const router = <BrowserRouter>
                     <Routes> 
                         <Route path="/" element={<App />} />
                         <Route path="signup" element={<Signup/>} />
-                        <Route path="sigin" element={<Sigin/>} />
+                        <Route path="signin" element={<Sigin/>} />
                         <Route path="dashboard" element={<Dashboard/>} />
                         <Route path="portfolio" element={<Portfolio/>} />
                         <Route path="order" element={<Order/>} />
