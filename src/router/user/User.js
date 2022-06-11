@@ -1,5 +1,8 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Cookies from 'universal-cookie';
+import UserData from './components/UserData'
+
 import { Button } from '@mui/material';
 
 const UserWrapper = styled.div`
@@ -37,64 +40,32 @@ const RightSide = styled.div`
   grid-template-rows: 1fr 1.7fr;
   color: white;
 `;
-const UserdataWrapper = styled.div`
-  background-color: black;
-  height: 100vh;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-`;
-const OrderBlock = styled.div`
-  background-color: black;
-  width: 100vh;
-  height: 80vh;
-  text-align: center;
-  color: white;
-  border: 1px solid white;
-`;
-const OrderBlockTitle = styled.h3`
-  color: white;
-  font-family: 'Roboto';
-  margin: 30px;
-`;
-const InternalBlock = styled.div`
-  margin-top: 2em;
-  background-color: black;
-  height: max-content;
-`;
-const Label = styled.label`
-  display: block;
-  color:white;
-`;
-  const Userdata = () => {
-    return (
-      <UserdataWrapper>
-      <OrderBlock>
-        <OrderBlockTitle>
-          User #7218
-        </OrderBlockTitle>
-        <InternalBlock>
-          <Label>Company RUC:</Label>
-          <Label>Quantity:</Label>
-          <Label>Price:</Label>
-          <Label>Transaction type:</Label>
-          <br />
-          <br />
-          <Button id={'Logout-button'} type={"submit"} color='secondary' variant="contained">Logout</Button>
-          <br />
-          <br />
-          <Button id={'LogoutAll-button'} type={"submit"} color='secondary' variant="contained">Logout All</Button>
-          <br />
-          <br />
-          <Button id={'Update-button'} type={"submit"} color='secondary' variant="contained">Update</Button>
 
-        </InternalBlock>
-      </OrderBlock>   
-    </UserdataWrapper>
-    )
+const axios = require('axios');
+  
+const User = () => {
+  const [userdata, getUserData] = useState('');
+  useEffect( () => {
+    getCurrentUserData();
+  }, []);
+
+  const getCurrentUserData = () => {
+    const cookies = new Cookies();
+    const config = {
+      headers: {  
+        Authorization: "Token " + cookies.get("Token")
+      }
+    }
+    axios.get('http://localhost:8000/api/auth/user/',config)
+    .then(response => {  
+      let json = response.data;
+      const currentuserdata = json;
+      console.log(currentuserdata);
+      getUserData(currentuserdata);
+    }).catch(error => {
+      console.log(error);
+    });
   }
-  const User = () => {
   return (
     <UserWrapper>
       <LeftSide>
@@ -106,8 +77,7 @@ const Label = styled.label`
         </Sections>
       </LeftSide>
       <RightSide>
-        <Userdata>
-        </Userdata>
+        <UserData userdata={userdata}/>
       </RightSide>
     </UserWrapper>
   )
