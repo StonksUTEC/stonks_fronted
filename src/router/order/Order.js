@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
+import { Button } from '@mui/material';
 import React from 'react'
+import Cookies from 'universal-cookie';
 
 const BuyWrapper = styled.div`
     display: grid;
@@ -180,19 +182,56 @@ const Label = styled.label`
   color:white;
 `;
 
+const axios = require('axios');
+
 const OrderConfirmation = () => {
+
+  const SubmitOrders = (event) => {
+    event.preventDefault();
+    const cookies = new Cookies();
+    const ruc = document.getElementById('ruc').value;
+    const quantity = document.getElementById('quantity').value;
+    const price = document.getElementById('price').value;
+    const transaction = document.getElementById('transaction').value;
+    const data = {
+      'company_ruc': ruc, 'quantity': quantity, 'price': price,'transaction_type': transaction
+    }
+    const config = {
+      headers: {
+        post:{  
+          Authorization: "Token " + cookies.get("Token")
+        }
+      }
+    }
+    console.log(config);
+    axios.post('http://localhost:8000/api/stocks/new-order/', data, config)
+      .then(response => {
+        let json = response.data;
+        console.log(json);
+        console.log("Order Registered");
+      }).catch(error => {
+        console.log(error);
+      });
+  }
+
   return (
     <OrderWrapper>
       <OrderBlock>
         <OrderBlockTitle>
           New Order
         </OrderBlockTitle>
-        <InternalBlock>
-          <Label>Email</Label>
-          <Input placeholder={'Company Ruc'}></Input>
-          <Input placeholder={'Quantity'}></Input>
-          <Input placeholder={'Price'}></Input>
-          <Input placeholder={'Transaction type'}></Input>
+        <InternalBlock onSubmit={SubmitOrders}>
+          <Label>Company RUC:</Label>
+          <Input id="ruc" placeholder={'Company Ruc'}></Input>
+          <Label>Quantity:</Label>
+          <Input id="quantity" placeholder={'Quantity'}></Input>
+          <Label>Price:</Label>
+          <Input id="price" placeholder={'Price'}></Input>
+          <Label>Transaction type:</Label>
+          <Input id="transaction" placeholder={'Transaction type'}></Input>
+          <br />
+          <br />
+          <Button  id={'submit-button'} type={"submit"} color='secondary' variant="contained">Order</Button>
         </InternalBlock>
       </OrderBlock>   
     </OrderWrapper>);
