@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const VideoBannerWrapper = styled.div`
   display: grid;
-  height: 80vh;
+  height: 92vh;
   width: 100vw;
   color: black;
   padding: 0;
@@ -19,7 +19,7 @@ const VideoBannerWrapper = styled.div`
 
 const VideoBanner = styled.video`
   width: 100%;
-  height: 80vh;
+  height: 92vh;
   overflow: hidden;
   padding: 0;
   margin: 0;
