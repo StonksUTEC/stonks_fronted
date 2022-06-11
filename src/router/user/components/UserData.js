@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Button } from '@mui/material';
+import Cookies from 'universal-cookie';
 
 const UserdataWrapper = styled.div`
   background-color: black;
@@ -32,7 +33,43 @@ const Label = styled.label`
   color:white;
 `;
 
+const axios = require('axios');
+
 export default function UserData(props) {
+
+    const logoutRequest = () => {
+      const cookies = new Cookies();
+      const config = {
+        headers: {  
+          Authorization: "Token " + cookies.get("Token")
+        }
+      }
+      axios.post('http://localhost:8000/api/auth/logout/', {},config)
+      .then(response => {  
+        let json = response.data;
+        console.log(json);
+        console.log("SUCCESSFUL LOGOUT");
+      }).catch(error => {
+        console.log(error);
+      });
+    }
+
+    const logoutAllRequest = () => {
+      const cookies = new Cookies();
+      const config = {
+        headers: {  
+          Authorization: "Token " + cookies.get("Token")
+        }
+      }
+      axios.post('http://localhost:8000/api/auth/logoutall/', {},config)
+      .then(response => {  
+        let json = response.data;
+        console.log(json);
+        console.log("SUCCESSFUL LOGOUT ALL");
+      }).catch(error => {
+        console.log(error);
+      });
+    }
 
     const displayUserData = (props) => {
         const user = props.userdata;
@@ -50,10 +87,10 @@ export default function UserData(props) {
                 <Label>Email: {user.email}</Label>
                 <br />
                 <br />
-                <Button id={'Logout-button'} type={"submit"} color='secondary' variant="contained">Logout</Button>
+                <Button id={'Logout-button'} onClick={logoutRequest}  color='secondary' variant="contained">Logout</Button>
                 <br />
                 <br />
-                <Button id={'LogoutAll-button'} type={"submit"} color='secondary' variant="contained">Logout All</Button>
+                <Button id={'LogoutAll-button'} onClick={logoutAllRequest} color='secondary' variant="contained">Logout All</Button>
                 <br />
                 <br />
                 <Button id={'Update-button'} type={"submit"} color='secondary' variant="contained">Update</Button>

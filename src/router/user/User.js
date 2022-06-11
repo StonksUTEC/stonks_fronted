@@ -2,7 +2,6 @@ import styled from '@emotion/styled'
 import React, { useEffect, useState } from 'react'
 import Cookies from 'universal-cookie';
 import UserData from './components/UserData'
-
 import { Button } from '@mui/material';
 
 const UserWrapper = styled.div`
