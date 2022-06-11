@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { Button } from '@mui/material';
 import React from 'react'
 import Cookies from 'universal-cookie';
+import { useNavigate } from "react-router-dom";
 
 const BuyWrapper = styled.div`
     display: grid;
@@ -186,6 +187,13 @@ const axios = require('axios');
 
 const OrderConfirmation = () => {
 
+  let navigate = useNavigate(); 
+  const redirectPortfolio = () =>{ 
+    let path = `/portfolio`; 
+    navigate(path);
+  }
+
+
   const SubmitOrders = (event) => {
     event.preventDefault();
     const cookies = new Cookies();
@@ -209,6 +217,7 @@ const OrderConfirmation = () => {
         let json = response.data;
         console.log(json);
         console.log("Order Registered");
+        redirectPortfolio();
       }).catch(error => {
         console.log(error);
       });
