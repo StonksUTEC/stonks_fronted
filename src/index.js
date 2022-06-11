@@ -8,6 +8,7 @@ import Portfolio from './router/portfolio/Portfolio';
 import Signin from './router/signin/Signin';
 import Signup from './router/signup/Signup';
 import Order from './router/order/Order';
+import User from './router/user/User';
 
 const router = <BrowserRouter>
                     <Routes> 
@@ -19,6 +20,7 @@ const router = <BrowserRouter>
                         <Route path="portfolio" element={<Portfolio/>} />
                         <Route path="order" element={<Order/>} />
                         <Route path="catalogue" element={<Catalogue/>} />
+                        <Route path="user" element={<User/>} />
                     </Routes>
                 </BrowserRouter>
 const root = createRoot(
