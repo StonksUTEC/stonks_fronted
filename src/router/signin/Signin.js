@@ -66,8 +66,8 @@ const RightSide = styled.div`
 
 const axios = require('axios');
 
-const Sigin = () => {
-  const cookies = new Cookies();
+const Signin = () => {
+  const cookies = new Cookies(); 
 
   const SubmitLogin = (event) => {
     event.preventDefault();
@@ -111,4 +111,4 @@ const Sigin = () => {
   )
 }
 
-export default Sigin
+export default Signin
