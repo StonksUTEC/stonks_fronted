@@ -40,14 +40,14 @@ const Header = () => {
                 <div className='header__menuitem'>
                     <Link style={{ 'textDecoration': 'none' }} to="sigin">
                         <ToggleItem>
-                            Sigin
+                            Sign in
                         </ToggleItem>
                     </Link>
                 </div>
                 <div className='header__menuitem'>
                     <Link style={{ 'textDecoration': 'none' }} to="signup">
                         <ToggleItem>
-                            Signup
+                            Sign up
                         </ToggleItem>
                     </Link>
                 </div>

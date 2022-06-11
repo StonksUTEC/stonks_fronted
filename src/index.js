@@ -12,8 +12,10 @@ import Order from './router/order/Order';
 const router = <BrowserRouter>
                     <Routes> 
                         <Route path="/" element={<App />} />
+                        // localhost:3000/signup
                         <Route path="signup" element={<Signup/>} />
-                        <Route path="signin" element={<Sigin/>} />
+                        // localhost:3000/sigin
+                        <Route path="sigin" element={<Sigin/>} />
                         <Route path="dashboard" element={<Dashboard/>} />
                         <Route path="portfolio" element={<Portfolio/>} />
                         <Route path="order" element={<Order/>} />
