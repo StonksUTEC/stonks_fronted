@@ -38,7 +38,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className='header__menuitem'>
-                    <Link style={{ 'textDecoration': 'none' }} to="sigin">
+                    <Link style={{ 'textDecoration': 'none' }} to="signin">
                         <ToggleItem>
                             Sign in
                         </ToggleItem>
