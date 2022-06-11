@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { Button } from '@mui/material';
 import Cookies from 'universal-cookie';
+import {useNavigate} from 'react-router-dom';
 
 const UserdataWrapper = styled.div`
   background-color: black;
@@ -36,7 +37,7 @@ const Label = styled.label`
 const axios = require('axios');
 
 export default function UserData(props) {
-
+    const navigate = useNavigate();
     const logoutRequest = () => {
       const cookies = new Cookies();
       const config = {
@@ -49,6 +50,7 @@ export default function UserData(props) {
         let json = response.data;
         console.log(json);
         console.log("SUCCESSFUL LOGOUT");
+        navigate('/');
       }).catch(error => {
         console.log(error);
       });
@@ -66,6 +68,7 @@ export default function UserData(props) {
         let json = response.data;
         console.log(json);
         console.log("SUCCESSFUL LOGOUT ALL");
+        navigate('/');
       }).catch(error => {
         console.log(error);
       });

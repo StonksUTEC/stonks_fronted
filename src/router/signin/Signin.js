@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 import React from 'react'
 import Banner from '../../img/banner.jpg'
 import Cookies from 'universal-cookie';
+import {useNavigate} from 'react-router-dom';
 
 const SiginWrapper = styled.div`
   display: grid;
@@ -68,7 +69,7 @@ const axios = require('axios');
 
 const Signin = () => {
   const cookies = new Cookies(); 
-
+  const navigate = useNavigate();
   const SubmitLogin = (event) => {
     event.preventDefault();
     console.log("TEST");
@@ -84,6 +85,7 @@ const Signin = () => {
         let json = response.data;
         cookies.set("Token", json.token, {path: '/'});
         console.log("Logged In");
+        navigate('/user');
       }).catch(error => {
         console.log(error)
       });
