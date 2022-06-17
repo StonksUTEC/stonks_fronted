@@ -23,6 +23,9 @@
     font-size: 14px;
 }
 .header__logo {
+    margin-left: 0px;
+}
+.header__stonks {
     margin-left: 48px;
 }
 

@@ -9,6 +9,7 @@ import Signin from './router/signin/Signin';
 import Signup from './router/signup/Signup';
 import Order from './router/order/Order';
 import User from './router/user/User';
+import Update from './router/update/update';
 
 const router = <BrowserRouter>
                     <Routes> 
@@ -21,6 +22,7 @@ const router = <BrowserRouter>
                         <Route path="order" element={<Order/>} />
                         <Route path="catalogue" element={<Catalogue/>} />
                         <Route path="user" element={<User/>} />
+                        <Route path="update" element={<Update/>} />
                     </Routes>
                 </BrowserRouter>
 const root = createRoot(

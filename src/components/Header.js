@@ -1,5 +1,7 @@
 import React from 'react'
 import Logo from "../img/logo.png";
+import Stonks from "../img/s.png";
+
 import { Link } from "react-router-dom";
 import "./Header.css";
 import styled from '@emotion/styled';
@@ -17,10 +19,15 @@ const ToggleItem = styled.div`
 const Header = () => {
     return (
         <div className='header__wrapper'>
+            {/* stonks */}
+            <div className='header__stonks'>
+                <img src={Stonks} alt="s" width={70} />
+            </div>
             {/* logo */}
             <div className='header__logo'>
                 <img src={Logo} alt="logo" width={100} />
             </div>
+            
             {/* search */}
             <div className='header__search'>
                 <div className='header__searchContainer'>

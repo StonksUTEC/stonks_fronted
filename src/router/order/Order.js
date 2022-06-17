@@ -2,7 +2,8 @@ import styled from '@emotion/styled'
 import { Button } from '@mui/material';
 import React from 'react'
 import Cookies from 'universal-cookie';
-
+import Logo from "../img/logo.png";
+import Stonks from "../img/s.png";
 
 const BuyWrapper = styled.div`
     display: grid;
@@ -182,6 +183,28 @@ const Label = styled.label`
   display: block;
   color:white;
 `;
+const St = styled.div`
+  text-align : center;
+`;
+const Log = styled.div`
+  text-align : center;
+`;
+const Input2 = styled.input`
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 0 10px;
+  /* margin: 4px 10px 0px 10px; */
+  margin-top: 5px;
+  margin-bottom: 4px;
+  margin-left: 10%;
+  height: 30px;
+  width: 14em;
+  outline: none;
+  border-width: 2px;
+  &:hover, &:active, &:focus, &::after{
+    outline: none;
+  }
+`;
 
 const axios = require('axios');
 
@@ -242,7 +265,14 @@ const Order = () => {
   return (
     <BuyWrapper>
       <LeftSide>
-        <Title>STONKS</Title>
+      <St>
+          <img src={Stonks} alt="s" width={70} />
+        </St>
+        <Log>
+          <img src={Logo} alt="logo" width={100} />
+        </Log>
+        <Input2></Input2>
+
         <Sections>
           <SectionItem>Portfolio</SectionItem>
           <SectionItem>Orders</SectionItem>

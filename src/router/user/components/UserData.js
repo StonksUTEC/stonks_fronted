@@ -2,7 +2,11 @@ import styled from '@emotion/styled'
 import { Button } from '@mui/material';
 import Cookies from 'universal-cookie';
 import {useNavigate} from 'react-router-dom';
+import Stonks from "../img/s.jpg";
+const St = styled.div`
+  text-align : center;
 
+`;
 const UserdataWrapper = styled.div`
   background-color: black;
   height: 100vh;
@@ -29,7 +33,19 @@ const InternalBlock = styled.div`
   background-color: black;
   height: max-content;
 `;
+const InternalIBlock = styled.div`
+  margin-top: 5em;
+  background-color: black;
+  height: max-content;
+  display:flex;
+  margin-right: 8em;
+  margin-left: 8em;
+  justify-content: space-between;
+
+`;
 const Label = styled.label`
+  
+  margin-top: 1em;
   display: block;
   color:white;
 `;
@@ -82,22 +98,28 @@ export default function UserData(props) {
             <OrderBlock>
               <OrderBlockTitle>
                 User
+                <br />
+          
+                <St>
+                  <img src={Stonks} alt="s" width={150} />
+                </St>
               </OrderBlockTitle>
               <InternalBlock>
                 <Label>DNI: {user.dni}</Label>
                 <Label>Names: {user.names}</Label>
                 <Label>Lastname: {user.lastname}</Label>
                 <Label>Email: {user.email}</Label>
-                <br />
-                <br />
-                <Button id={'Logout-button'} onClick={logoutRequest}  color='secondary' variant="contained">Logout</Button>
-                <br />
-                <br />
+                
+                <InternalIBlock >
+              
+                <Button id={'Logout-button'} onClick={logoutRequest}  color='secondary' variant="contained" >Logout</Button>
+                
                 <Button id={'LogoutAll-button'} onClick={logoutAllRequest} color='secondary' variant="contained">Logout All</Button>
-                <br />
-                <br />
+               
                 <Button id={'Update-button'} type={"submit"} color='secondary' variant="contained">Update</Button>
       
+                </InternalIBlock>
+                
               </InternalBlock>
             </OrderBlock>   
           </UserdataWrapper>

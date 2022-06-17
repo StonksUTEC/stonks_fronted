@@ -2,6 +2,9 @@ import styled from '@emotion/styled'
 import React, { useEffect, useState } from 'react'
 import Cookies from 'universal-cookie';
 import PortfolioCards from './components/PortfolioCards'
+import Logo from "../img/logo.png";
+import Stonks from "../img/s.png";
+import { Link } from "react-router-dom";
 
 const BuyWrapper = styled.div`
   display: grid;
@@ -12,10 +15,10 @@ const BuyWrapper = styled.div`
   color: black;
 `;
 const LeftSide = styled.div`
-  background-color: #DCFEC2;
+background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
   font-family: 'Jura';
   /* Add shadow */
-  border-right: 8px solid #BCFE8B;
+  
 `;
 const RightSide = styled.div`
   display: grid;
@@ -56,7 +59,8 @@ const SectionItem = styled.div`
   margin: 20px;
   font-family: 'Jura';
   font-weight: 600;
-  font-size: 20px;
+  font-size: 25px;
+  color: white;
 `;
 
 const Title = styled.div`
@@ -81,6 +85,13 @@ const Input = styled.input`
   &:hover, &:active, &:focus, &::after{
     outline: none;
   }
+`;
+const St = styled.div`
+  text-align : center;
+
+`;
+const Log = styled.div`
+  text-align : center;
 `;
 
 const axios = require('axios');
@@ -114,12 +125,26 @@ const Portfolio = () => {
   return (
     <BuyWrapper>
       <LeftSide>
-        <Title>STONKS</Title>
+      <St>
+          <img src={Stonks} alt="s" width={70} />
+        </St>
+        <Log>
+          <img src={Logo} alt="logo" width={100} />
+        </Log>
         <Input></Input>
         <Sections>
+        <Link style={{ 'textDecoration': 'none' }} to="/user">
+        <SectionItem>Profile</SectionItem>
+        </Link>
+        <Link style={{ 'textDecoration': 'none' }} to="/portfolio">
           <SectionItem>Portfolio</SectionItem>
-          <SectionItem>Orders</SectionItem>
-          <SectionItem>Notifications</SectionItem>
+          </Link>
+          <Link style={{ 'textDecoration': 'none' }} to="/catalogue">
+          <SectionItem>Companies</SectionItem>
+          </Link>
+          <Link style={{ 'textDecoration': 'none' }} to="/dashboard">
+          <SectionItem>Dashboard</SectionItem>
+          </Link>
         </Sections>
       </LeftSide>
       <RightSide>

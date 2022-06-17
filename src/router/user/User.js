@@ -3,7 +3,16 @@ import React, { useEffect, useState } from 'react'
 import Cookies from 'universal-cookie';
 import UserData from './components/UserData'
 import { Button } from '@mui/material';
+import Logo from "../img/logo.png";
+import Stonks from "../img/s.png";
+import { Link } from "react-router-dom";
 
+const St = styled.div`
+  text-align : center;
+`;
+const Log = styled.div`
+  text-align : center;
+`;
 const UserWrapper = styled.div`
     display: grid;
   grid-template-columns: 0.2fr 1fr;
@@ -13,10 +22,10 @@ const UserWrapper = styled.div`
   color: black;
 `;
 const LeftSide = styled.div`
-  background-color: #DCFEC2;
+  background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
   font-family: 'Jura';
   /* Add shadow */
-  border-right: 8px solid #BCFE8B;
+ 
 `;
 const Title = styled.div`
   margin: 10px;
@@ -31,7 +40,8 @@ const SectionItem = styled.div`
   margin: 20px;
   font-family: 'Jura';
   font-weight: 600;
-  font-size: 20px;
+  font-size: 25px;
+  color: white;
 `;
 const RightSide = styled.div`
   display: grid;
@@ -39,7 +49,22 @@ const RightSide = styled.div`
   grid-template-rows: 1fr 1.7fr;
   color: white;
 `;
-
+const Input = styled.input`
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 0 10px;
+  /* margin: 4px 10px 0px 10px; */
+  margin-top: 5px;
+  margin-bottom: 4px;
+  margin-left: 10%;
+  height: 30px;
+  width: 14em;
+  outline: none;
+  border-width: 2px;
+  &:hover, &:active, &:focus, &::after{
+    outline: none;
+  }
+`;
 const axios = require('axios');
   
 const User = () => {
@@ -68,11 +93,27 @@ const User = () => {
   return (
     <UserWrapper>
       <LeftSide>
-        <Title>STONKS</Title>
+      <St>
+          <img src={Stonks} alt="s" width={70} />
+        </St>
+        <Log>
+          <img src={Logo} alt="logo" width={100} />
+        </Log>
+        <Input></Input>
+
         <Sections>
+        <Link style={{ 'textDecoration': 'none' }} to="/user">
+        <SectionItem>Profile</SectionItem>
+        </Link>
+        <Link style={{ 'textDecoration': 'none' }} to="/portfolio">
           <SectionItem>Portfolio</SectionItem>
-          <SectionItem>Orders</SectionItem>
-          <SectionItem>Notifications</SectionItem>
+          </Link>
+          <Link style={{ 'textDecoration': 'none' }} to="/catalogue">
+          <SectionItem>Companies</SectionItem>
+          </Link>
+          <Link style={{ 'textDecoration': 'none' }} to="/dashboard">
+          <SectionItem>Dashboard</SectionItem>
+          </Link>
         </Sections>
       </LeftSide>
       <RightSide>

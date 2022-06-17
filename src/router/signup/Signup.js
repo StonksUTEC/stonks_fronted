@@ -52,6 +52,7 @@ const Input = styled.input`
 const Label = styled.label`
   display: block;
   margin-top: 20px;
+  color: white;
   /* margin-left: 10px; */
   /* margin: 0 10px 0px 10px; */
 `;
@@ -59,11 +60,11 @@ const Title = styled.h1`
   /* margin-left: 10px; */
   margin-bottom: 1em;
   font-size: 1.5em;
-  color: green;
+  color: white;
 `;
 
 const RightSide = styled.div`
-  background-color: white;
+background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
 `;
 
 
@@ -108,7 +109,6 @@ const Sigup = () => {
 
           <Label>Email</Label>
           <Input id="email" type={'email'} />
-
           <Label>Password</Label>
           <Input id="password" type="password" />
 
