@@ -4,6 +4,7 @@ import React from 'react'
 import Cookies from 'universal-cookie';
 import Logo from "../img/logo.png";
 import Stonks from "../img/s.png";
+import { Link } from "react-router-dom";
 
 const BuyWrapper = styled.div`
     display: grid;
@@ -15,10 +16,9 @@ const BuyWrapper = styled.div`
 `;
 
 const LeftSide = styled.div`
-  background-color: #DCFEC2;
+background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
   font-family: 'Jura';
   /* Add shadow */
-  border-right: 8px solid #BCFE8B;
 `;
 const RightSide = styled.div`
   display: grid;
@@ -88,6 +88,7 @@ const StockSellButton = styled.button`
 
 const Sections = styled.div`
   margin-top: 6em;
+  color: white;
 `;
 
 const SectionItem = styled.div`
@@ -95,6 +96,7 @@ const SectionItem = styled.div`
   font-family: 'Jura';
   font-weight: 600;
   font-size: 20px;
+  color: white;
 `;
 
 const StockSellWrapper = styled.div`
@@ -181,7 +183,7 @@ const InternalBlock = styled.form`
 `;
 const Label = styled.label`
   display: block;
-  color:white;
+  color: white;
 `;
 const St = styled.div`
   text-align : center;
@@ -238,6 +240,15 @@ const OrderConfirmation = () => {
       });
   }
 
+  // Rellenar con data de parametros
+  let url = new URL(window.location.href)
+  let params = new URLSearchParams(url.search)
+  console.log(params.get("method"))
+  console.log(params.get("company"))
+
+  let method = params.get("method")
+  let company = (params.has("company")) ? params.get("company") : "Company Ruc"
+
   return (
     <OrderWrapper>
       <OrderBlock>
@@ -246,7 +257,7 @@ const OrderConfirmation = () => {
         </OrderBlockTitle>
         <InternalBlock onSubmit={SubmitOrders}>
           <Label>Company RUC:</Label>
-          <Input id="ruc" placeholder={'Company Ruc'}></Input>
+          <Input id="ruc" defaultValue={company} placeholder="Company Ruc"></Input>
           <Label>Quantity:</Label>
           <Input id="quantity" placeholder={'Quantity'}></Input>
           <Label>Price:</Label>
@@ -255,7 +266,7 @@ const OrderConfirmation = () => {
           <Input id="transaction" placeholder={'Transaction type'}></Input>
           <br />
           <br />
-          <Button  id={'submit-button'} type={"submit"} color='secondary' variant="contained">Order</Button>
+          <Button id={'submit-button'} type={"submit"} color='secondary' variant="contained">Order</Button>
         </InternalBlock>
       </OrderBlock>   
     </OrderWrapper>);
@@ -274,9 +285,18 @@ const Order = () => {
         <Input2></Input2>
 
         <Sections>
+          <Link style={{ 'textDecoration': 'none' }} to="/user">
+        <SectionItem>Profile</SectionItem>
+        </Link>
+        <Link style={{ 'textDecoration': 'none' }} to="/portfolio">
           <SectionItem>Portfolio</SectionItem>
-          <SectionItem>Orders</SectionItem>
-          <SectionItem>Notifications</SectionItem>
+          </Link>
+          <Link style={{ 'textDecoration': 'none' }} to="/catalogue">
+          <SectionItem>Companies</SectionItem>
+          </Link>
+          <Link style={{ 'textDecoration': 'none' }} to="/order">
+          <SectionItem>Order</SectionItem>
+          </Link>
         </Sections>
       </LeftSide>
       <RightSide>

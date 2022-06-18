@@ -111,8 +111,8 @@ const User = () => {
           <Link style={{ 'textDecoration': 'none' }} to="/catalogue">
           <SectionItem>Companies</SectionItem>
           </Link>
-          <Link style={{ 'textDecoration': 'none' }} to="/dashboard">
-          <SectionItem>Dashboard</SectionItem>
+          <Link style={{ 'textDecoration': 'none' }} to="/order">
+          <SectionItem>Order</SectionItem>
           </Link>
         </Sections>
       </LeftSide>

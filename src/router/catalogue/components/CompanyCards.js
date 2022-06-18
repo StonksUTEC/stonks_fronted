@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import {useNavigate} from 'react-router-dom';
 
 const StockRow = styled.div`
   color: white;
@@ -45,6 +46,16 @@ const StockSellWrapper = styled.div`
 `;
 
 export default function CompanyCards(props) {
+  const navigate = useNavigate();
+
+  const sellButton = e => {
+    const companyRuc = e.target.value;
+    navigate("/order?method=sell&company="+companyRuc)
+  }
+  const buyButton = e => {
+    const companyRuc = e.target.value;
+    navigate("/order?method=buy&company="+companyRuc)
+  }
 
   const displayCompanies = (props) => {
     const {menu, companies} = props;
@@ -67,11 +78,11 @@ export default function CompanyCards(props) {
               {company.lastest_price}
             </StockItem>
             <StockSellWrapper>
-              <StockSellButton type='number'>
+              <StockSellButton value={company.ruc} onClick={sellButton} type='number'>
                   Sell
               </StockSellButton>
-              <StockSellButton type='number'>
-                Buy
+              <StockSellButton value={company.ruc} onClick={buyButton} type='number'>
+                   Buy
               </StockSellButton>
             </StockSellWrapper>
           </StockRow>

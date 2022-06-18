@@ -109,17 +109,23 @@ const Sigup = () => {
 
           <Label>Email</Label>
           <Input id="email" type={'email'} />
+          {/*<div id="erroremail" class="hidden" style="color:red">Required!</div>*/}
+
           <Label>Password</Label>
           <Input id="password" type="password" />
+          {/*<div id="errorpassword" class="hidden" style="color:red">Required!</div>*/}
 
           <Label>Names</Label>
           <Input id="names" type={'text'} />
+          {/*<div id="errornames" class="hidden" style="color:red">Required!</div>*/}
 
           <Label>Lastname</Label>
           <Input id="lastname" type={'text'} />
+          {/*<div id="errorlastname" class="hidden" style="color:red">Required!</div>*/}
 
           <Label>DNI</Label>
           <Input id="dni" type={'text'} />
+          {/*<div id="errordni" class="hidden" style="color:red">Required!</div>*/}
 
           <br />
           <br />

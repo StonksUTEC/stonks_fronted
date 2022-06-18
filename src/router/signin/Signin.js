@@ -51,6 +51,8 @@ const Input = styled.input`
 const Label = styled.label`
   display: block;
   margin-top: 20px;
+  color: white;
+
   /* margin-left: 10px; */
   /* margin: 0 10px 0px 10px; */
 `;
@@ -58,11 +60,11 @@ const Title = styled.h1`
   /* margin-left: 10px; */
   margin-bottom: 1em;
   font-size: 1.5em;
-  color: green;
+  color: white;
 `;
 
 const RightSide = styled.div`
-  background-color: white;
+background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
 `;
 
 const axios = require('axios');
@@ -101,9 +103,11 @@ const Signin = () => {
           <Title>Sign In to Stonks</Title>
           <Label>DNI</Label>
           <Input id="dni" type={'text'}/>
-
+          {/*<div id="errordni2" class="hidden" style="color:red" >Required!</div>*/}
           <Label>Password</Label>
           <Input id="password" type="password" />
+          {/*<div id="errorpassword2" class="hidden" style="color:red">Required!</div>*/}
+
           <br/>
           <br/>
           <Button  id={'submit-button'} type={"submit"} color='secondary' variant="contained">Login</Button>

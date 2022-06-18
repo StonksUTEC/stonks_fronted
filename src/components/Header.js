@@ -36,14 +36,14 @@ const Header = () => {
             </div>
             {/* menuitems */}
             <div className='header__menuitems'>
-                <div className='header__menuitem'>
+                {/* <div className='header__menuitem'>
                     <Link style={{ 'textDecoration': 'none' }} to="/dashboard">
                         <ToggleItem>
                             Dashboard
                         </ToggleItem>
 
                     </Link>
-                </div>
+                </div>*/}
                 <div className='header__menuitem'>
                     <Link style={{ 'textDecoration': 'none' }} to="signin">
                         <ToggleItem>
