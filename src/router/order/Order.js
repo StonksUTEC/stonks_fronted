@@ -247,7 +247,7 @@ const OrderConfirmation = () => {
   console.log(params.get("company"))
 
   let method = params.get("method")
-  let company = (params.has("company")) ? params.get("company") : "Company Ruc"
+  let company = (params.has("company")) ? params.get("company") : ""
 
   return (
     <OrderWrapper>
