@@ -1,0 +1,8 @@
+.dashboard-block {
+    display: grid;
+    grid-template-columns: auto 100%;
+    box-sizing: border-box;
+}
+.dashboard-content {
+    margin-left: 20px;
+}
