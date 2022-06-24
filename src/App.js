@@ -29,7 +29,6 @@ function App() {
         {/* TODO:: Update views */}
         {/* <Route path="user" element={<User />} />
         <Route path="update" element={<Update />} /> */}
-        
       </Routes>
     </BrowserRouter>
   );

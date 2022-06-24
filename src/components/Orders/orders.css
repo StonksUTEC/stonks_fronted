@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: auto 100%;
     background-color: red;
-    
 }
 .order-box {
     width: 50%;
@@ -24,4 +23,9 @@
 
 .order-content {
     padding-left: 30px;
+}
+
+[role=tablist] {
+    display: flex;
+    justify-content: space-evenly;
 }

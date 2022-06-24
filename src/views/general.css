@@ -1,8 +1,10 @@
 .dashboard-block {
     display: grid;
-    grid-template-columns: auto 100%;
-    box-sizing: border-box;
+    grid-template-columns: 300px auto;
+    /* box-sizing: border-box; */
+    font-family: 'Roboto';
 }
 .dashboard-content {
     margin-left: 20px;
+    font-family: 'Roboto';
 }

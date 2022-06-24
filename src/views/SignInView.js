@@ -1,9 +1,10 @@
 import React from 'react'
+import SignInSide from '../components/SignIn/SigninComponent';
 
 const SignInView = () => {
   return (
-    <div>SignInView</div>
-  )
+    <SignInSide />
+  );
 }
 
 export default SignInView

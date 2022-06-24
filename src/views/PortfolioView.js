@@ -6,7 +6,8 @@ const PortfolioView = () => {
     <div className='dashboard-block'>
         <Sidebar></Sidebar>
         <div className='dashboard-content'>
-            <h2>PortfolioView</h2>
+            <h2>My Portfolio</h2>
+            
         </div>
     </div>
   )
