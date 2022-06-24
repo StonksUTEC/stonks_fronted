@@ -9,19 +9,6 @@ export async function isAuthenticated() {
 
 export function getUsername() {
     try {
-        /*
-        api_path = "";
-        token = "";
-        connection.get(api_path, {
-            "x-access-token": token
-        })
-            .then((res) => {
-                return res.body.name;
-            })
-            .catch(error => {
-                return 'undefine';
-            })
-        */
         return 'Alexander';
 
     } catch (error) {

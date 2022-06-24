@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const axiosToken = axios.create(
+export const axiosToken = axios.create(
     {
         baseURL: 'https://174d1cfd-b2b2-4d83-a1bf-efbe3b259787.mock.pstmn.io'
     }
