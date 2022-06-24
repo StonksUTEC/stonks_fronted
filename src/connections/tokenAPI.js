@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const axiosToken = axios.create(
     {
-        baseURL: 'https://174d1cfd-b2b2-4d83-a1bf-efbe3b259787.mock.pstmn.io'
+        baseURL: 'http://localhost:3001/'
     }
 );
 

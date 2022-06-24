@@ -7,23 +7,29 @@
 .order-box-wrapper {
     display: grid;
     width: 100%;
+    font-family: 'Roboto';
 }
 
 .order-box-header {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    font-weight: 600;
 }
 .order-box-item {
     width: 100px;
-    /* background-color: red; */
-    /* color: red; */
+    height: 20px;
+    margin: 2px;
     text-align: 'center';
 }
 
 .order-box-completed-icon {
     background-color: green;
+    color: white;
     margin-right: 20px;
+    width: 20%;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .order-box-data {
