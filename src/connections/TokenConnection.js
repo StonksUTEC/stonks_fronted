@@ -7,3 +7,7 @@ export function existsToken() {
     if (cookies.get('Token') === undefined || cookies.get('Token') === '') return false;
     return true;
 }
+
+export function tokenIsCorrect() {
+
+}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom';
 import {existsToken} from '../connections/TokenConnection'
-
 const PrivateRoute = ({ children }) => {
     // axiosToken.get('/api/token')
     //     .then(res => {console.log(res.data); cookies.set("Token", res.data.token, { path: '/' }) });

@@ -3,6 +3,34 @@
     grid-template-columns: auto 100%;
     background-color: red;
 }
+
+.order-box-wrapper {
+    display: grid;
+    width: 100%;
+}
+
+.order-box-header {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.order-box-item {
+    width: 100px;
+    /* background-color: red; */
+    /* color: red; */
+    text-align: 'center';
+}
+
+.order-box-completed-icon {
+    background-color: green;
+    margin-right: 20px;
+}
+
+.order-box-data {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
 .order-box {
     width: 50%;
     text-align: center;

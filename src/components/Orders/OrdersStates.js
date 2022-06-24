@@ -4,7 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import OrderBox from './OrderBox';
+import { OrderBox, OrderBoxCancel, OrderBoxCompleted } from './OrderBox';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -56,9 +56,10 @@ export default function OrdersStates() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <OrderBox/>
-        <OrderBox/>
-        <OrderBox/>
+        <OrderBoxCancel/>
+        <OrderBoxCancel/>
+        <OrderBoxCancel/>
+        <OrderBoxCancel/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <OrderBox/>
@@ -66,9 +67,9 @@ export default function OrdersStates() {
         <OrderBox/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <OrderBox/>
-        <OrderBox/>
-        <OrderBox/>
+        <OrderBoxCompleted/>
+        <OrderBoxCompleted/>
+        <OrderBoxCompleted/>
       </TabPanel>
     </Box>
   );

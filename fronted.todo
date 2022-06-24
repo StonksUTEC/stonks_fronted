@@ -8,7 +8,7 @@
           "content": "Login",
           "id": 1656005626238,
           "level": "default",
-          "done": false
+          "done": true
         }
       },
       {
@@ -18,7 +18,7 @@
           "content": "Signup",
           "id": 1656005637332,
           "level": "default",
-          "done": false
+          "done": true
         }
       },
       {
@@ -28,7 +28,7 @@
           "content": "Portfolio",
           "id": 1656005651050,
           "level": "default",
-          "done": false
+          "done": true
         }
       },
       {
@@ -69,6 +69,6 @@
     "add_mode": "bottom",
     "virtual": false,
     "showLine": false,
-    "playFontSize": 0
+    "playFontSize": 24
   }
 }
