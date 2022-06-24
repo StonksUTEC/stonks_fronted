@@ -22,6 +22,7 @@ function StocksSellData() {
         }
         fetchData();
     })
+    const [sellStock, setSellStock] = useState([]);
     return (
         <Fragment>
             {
@@ -36,9 +37,9 @@ function StocksSellData() {
                         <TableCell align="center">{stock.company_ruc.company_name}</TableCell>
                         <TableCell align="center">{stock.company_ruc.acronym}</TableCell>
                         <TableCell align="center">{stock.company_ruc.lastest_price}</TableCell>
-                        <TableCell align="center">{stock.quantity}</TableCell>
+                        {/* <TableCell align="center">{stock.quantity}</TableCell> */}
                         <TableCell align="center">
-                            <StockSellModal sx={{textAlign: 'center'}}>Sell</StockSellModal>
+                            <StockSellModal stockValue={stock} sx={{textAlign: 'center'}}>Sell</StockSellModal>
                         </TableCell>
                     </TableRow>
                 ))
@@ -57,7 +58,7 @@ export default function StocksSellComponent() {
                         <TableCell align="center">Company</TableCell>
                         <TableCell align="center">Acronym</TableCell>
                         <TableCell align="center">Latest price</TableCell>
-                        <TableCell align="center">Quantity</TableCell>
+                        {/* <TableCell align="center">Quantity</TableCell> */}
                         <TableCell align="center"></TableCell>
                     </TableRow>
                 </TableHead>

@@ -53,7 +53,7 @@ function StocksBuyData() {
                         <TableCell align="center">{stock.company_ruc.lastest_price}</TableCell>
                         {/* <TableCell align="center">{stock.quantity}</TableCell> */}
                         <TableCell align="center">
-                            <StockBuyModal sx={{textAlign: 'center'}}>Buy</StockBuyModal>
+                            <StockBuyModal stockValue={stock} sx={{textAlign: 'center'}}>Buy</StockBuyModal>
                         </TableCell>
                     </TableRow>
                 ))
