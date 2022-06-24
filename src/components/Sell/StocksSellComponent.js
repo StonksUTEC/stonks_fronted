@@ -12,23 +12,8 @@ import { Fragment } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Button } from '@mui/material';
-import StockBuyModal from './StockBuyModal';
-
-// Style of modal
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
-
-// General function to get data
-function StocksBuyData() {
+import StockSellModal from './StockSellModal';
+function StocksSellData() {
     const [stocks, setStocks] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -51,9 +36,9 @@ function StocksBuyData() {
                         <TableCell align="center">{stock.company_ruc.company_name}</TableCell>
                         <TableCell align="center">{stock.company_ruc.acronym}</TableCell>
                         <TableCell align="center">{stock.company_ruc.lastest_price}</TableCell>
-                        {/* <TableCell align="center">{stock.quantity}</TableCell> */}
+                        <TableCell align="center">{stock.quantity}</TableCell>
                         <TableCell align="center">
-                            <StockBuyModal sx={{textAlign: 'center'}}>Buy</StockBuyModal>
+                            <StockSellModal sx={{textAlign: 'center'}}>Sell</StockSellModal>
                         </TableCell>
                     </TableRow>
                 ))
@@ -62,8 +47,7 @@ function StocksBuyData() {
     )
 }
 
-// Componenet of Stock table
-export default function StocksBuyComponent() {
+export default function StocksSellComponent() {
     return (
         <TableContainer component={Paper} sx ={{width: '80%', marginLeft: '10%'}}>
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -73,12 +57,12 @@ export default function StocksBuyComponent() {
                         <TableCell align="center">Company</TableCell>
                         <TableCell align="center">Acronym</TableCell>
                         <TableCell align="center">Latest price</TableCell>
-                        {/* <TableCell align="center">Quantity</TableCell> */}
+                        <TableCell align="center">Quantity</TableCell>
                         <TableCell align="center"></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <StocksBuyData/>
+                    <StocksSellData/>
                 </TableBody>
             </Table>
         </TableContainer>

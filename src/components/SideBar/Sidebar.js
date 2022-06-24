@@ -9,7 +9,9 @@ import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
+import { signout } from "../../connections/signoutConnection";
 function Sidebar() {
     return (
         <div className="sidebar">
@@ -34,7 +36,7 @@ function Sidebar() {
             <Link to="/settings" style={{ textDecoration: 'none', color: 'inherit' }}>
             <SidebarLink text="Settings" Icon={MoreHorizIcon} />
             </Link>
-
+            <Button onClick={signout}variant="contained">Sign out</Button>
         </div>
     );
 }
