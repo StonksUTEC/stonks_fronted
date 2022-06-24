@@ -66,7 +66,7 @@ export default function StockBuyModal(props) {
             >
                 <Box component="form" sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Sell Order
+                        Buy Order
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         Details of order
