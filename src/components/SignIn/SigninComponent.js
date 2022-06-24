@@ -13,7 +13,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import { SignInPost } from '../../connections/auth/authAPI';
 
 function Copyright(props) {
   return (
@@ -35,10 +34,9 @@ export default function SignInSide() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      username: data.get('username'),
+      email: data.get('email'),
       password: data.get('password'),
     });
-    SignInPost(data.get('username'), data.get('password'));
   };
 
   return (
@@ -87,10 +85,10 @@ export default function SignInSide() {
                 margin="normal"
                 required
                 fullWidth
-                id="username"
-                label="Username"
-                name="username"
-                autoComplete="username"
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
                 autoFocus
               />
               <TextField

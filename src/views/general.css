@@ -1,4 +1,6 @@
 .dashboard-block {
+    background-color: white;
+    color: black;
     display: grid;
     grid-template-columns: 300px auto;
     /* box-sizing: border-box; */

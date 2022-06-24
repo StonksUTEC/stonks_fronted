@@ -3,20 +3,21 @@ import React from 'react'
 import { signin } from '../connections/signinConnection';
 import { signout } from '../connections/signoutConnection';
 import { isAuthenticated } from '../connections/userAPI';
+import Header from './components/Header'
+import Body from './components/Body';
+import styled from '@emotion/styled'
+
+
 const LandingView = () => {
   return (
-    <div>
-        <Button onClick={signin} variant="contained">Sigin</Button>
-        <Button onClick={signout} variant="contained">Signout</Button>
-        <Button onClick={isAuthenticated} variant="contained">Is Authenticated</Button>
-        <Button href='/signin' variant="contained">Sign In</Button>
-        <Button href='/signup' variant="contained">Sign Up</Button>
-        <Button href='/home' variant="contained">Home</Button>
-        <Button href='/buy' variant="contained">Buy</Button>
-        <Button href='/portfolio' variant="contained">Portfolio</Button>
-        <Button href='/portfolio' variant="contained">Portfolio</Button>
-    </div>
-     
+    <div className="App" >
+            <div className='app__header'>
+                <Header />
+            </div>
+            
+            <div className='app__body'><Body /></div>
+            
+        </div>
   );
 }
 

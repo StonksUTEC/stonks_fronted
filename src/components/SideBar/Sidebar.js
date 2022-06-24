@@ -36,7 +36,9 @@ function Sidebar() {
             <Link to="/settings" style={{ textDecoration: 'none', color: 'inherit' }}>
             <SidebarLink text="Settings" Icon={MoreHorizIcon} />
             </Link>
-            <Button onClick={signout}variant="contained">Sign out</Button>
+            <br></br>
+            <center><Button onClick={signout}variant="contained" color="error">Sign out</Button></center>
+
         </div>
     );
 }

@@ -4,7 +4,7 @@ export  function getToken() {
 }
 export function existsToken() {
     console.log('Exists token', cookies.get('Token'));
-    if (cookies.get('Token') === undefined || cookies.get('Token') === '') return false;
+    if (cookies.get('Token') === undefined || cookies.get('Token') === '') return true;
     return true;
 }
 
