@@ -21,7 +21,7 @@ function StocksSellData() {
             setStocks(data);
         }
         fetchData();
-    })
+    }, [])
     const [sellStock, setSellStock] = useState([]);
     return (
         <Fragment>

@@ -36,7 +36,7 @@ function StocksBuyData() {
             setStocks(data);
         }
         fetchData();
-    })
+    }, [])
     return (
         <Fragment>
             {
