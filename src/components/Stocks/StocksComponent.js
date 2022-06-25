@@ -11,11 +11,12 @@ import { getStocks } from '../../connections/stocks/Stocks';
 import { Fragment } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { getPortfolio } from '../../connections/portafolio/Portafolio';
 function StocksPortfolioData() {
     const [stocks, setStocks] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const data =await getStocks();
+            const data =await getPortfolio();
             setStocks(data);
         }
         fetchData();

@@ -42,15 +42,15 @@ function StocksBuyData() {
             {
                 stocks.map((stock) => (
                     <TableRow
-                        key={stock.company_ruc}
+                        key={stock.ruc}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
                         <TableCell component="th" scope="row" align="center">
-                            {stock.company_ruc.ruc}
+                            {stock.ruc}
                         </TableCell>
-                        <TableCell align="center">{stock.company_ruc.company_name}</TableCell>
-                        <TableCell align="center">{stock.company_ruc.acronym}</TableCell>
-                        <TableCell align="center">{stock.company_ruc.lastest_price}</TableCell>
+                        <TableCell align="center">{stock.company_name}</TableCell>
+                        <TableCell align="center">{stock.acronym}</TableCell>
+                        <TableCell align="center">{stock.lastest_price}</TableCell>
                         {/* <TableCell align="center">{stock.quantity}</TableCell> */}
                         <TableCell align="center">
                             <StockBuyModal stockValue={stock} sx={{textAlign: 'center'}}>Buy</StockBuyModal>

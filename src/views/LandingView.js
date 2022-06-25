@@ -5,7 +5,7 @@ import { signout } from '../connections/signoutConnection';
 import { isAuthenticated } from '../connections/userAPI';
 const LandingView = () => {
   return (
-    <div>
+    <div >
         <Button onClick={signin} variant="contained">Sigin</Button>
         <Button onClick={signout} variant="contained">Signout</Button>
         <Button onClick={isAuthenticated} variant="contained">Is Authenticated</Button>

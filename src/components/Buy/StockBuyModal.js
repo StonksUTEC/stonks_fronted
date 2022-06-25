@@ -75,15 +75,15 @@ export default function StockBuyModal(props) {
                     <br></br>
                     <FormLabel>Company Ruc</FormLabel>
                     <br></br>
-                    <Input value={props.stockValue.company_ruc.ruc}></Input>
+                    <Input value={props.stockValue.ruc}></Input>
                     <br></br>
                     <FormLabel>Quantity</FormLabel>
                     <br></br>
-                    <Input value={props.stockValue.quantity}></Input>
+                    <Input value={0}></Input>
                     <br></br>
                     <FormLabel>Price</FormLabel>
                     <br></br>
-                    <Input value={props.stockValue.company_ruc.lastest_price}></Input>
+                    <Input value={props.stockValue.lastest_price}></Input>
                     <br></br>
                     <FormLabel>Type</FormLabel>
                     <br></br>
