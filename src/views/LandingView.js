@@ -6,9 +6,9 @@ import { isAuthenticated } from '../connections/userAPI';
 const LandingView = () => {
   return (
     <div >
-        <Button onClick={signin} variant="contained">Sigin</Button>
-        <Button onClick={signout} variant="contained">Signout</Button>
-        <Button onClick={isAuthenticated} variant="contained">Is Authenticated</Button>
+        {/* <Button onClick={signin} variant="contained">Sigin</Button>
+        <Button onClick={signout} variant="contained">Signout</Button> */}
+        {/* <Button onClick={isAuthenticated} variant="contained">Is Authenticated</Button> */}
         <Button href='/signin' variant="contained">Sign In</Button>
         <Button href='/signup' variant="contained">Sign Up</Button>
         <Button href='/home' variant="contained">Home</Button>

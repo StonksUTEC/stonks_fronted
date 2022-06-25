@@ -3,97 +3,154 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { FormLabel, Input } from '@mui/material';
+import { FormLabel, Input, TextField } from '@mui/material';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import axios from 'axios';
+import cookies from '../../libs/CookiesApp';
 
 const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-    p: 4,
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  p: 4,
 };
 
 export function SelectVariants() {
-    const [age, setAge] = React.useState('');
-  
-    const handleChange = (event) => {
-      setAge(event.target.value);
-    };
-  
-    return (
-      <div>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel id="demo-simple-select-standard-label"></InputLabel>
-          <Select
-            labelId="demo-simple-select-standard-label"
-            id="demo-simple-select-standard"
-            value={age}
-            onChange={handleChange}
-            label=""
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>First</MenuItem>
-            <MenuItem value={20}>Second</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-      </div>
-    );
-  }
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+  return (
+    <div>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-standard-label"></InputLabel>
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={age}
+          onChange={handleChange}
+          label=""
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>First</MenuItem>
+          <MenuItem value={20}>Second</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+  );
+}
 
 export default function StockBuyModal(props) {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-    return (
-        <div>
-            <Button onClick={handleOpen} variant="contained">Buy</Button>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box component="form" sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Buy Order
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Details of order
-                    </Typography>
-                    <br></br>
-                    <br></br>
-                    <FormLabel>Company Ruc</FormLabel>
-                    <br></br>
-                    <Input value={props.stockValue.ruc}></Input>
-                    <br></br>
-                    <FormLabel>Quantity</FormLabel>
-                    <br></br>
-                    <Input value={0}></Input>
-                    <br></br>
-                    <FormLabel>Price</FormLabel>
-                    <br></br>
-                    <Input value={props.stockValue.lastest_price}></Input>
-                    <br></br>
-                    <FormLabel>Type</FormLabel>
-                    <br></br>
-                    <SelectVariants/>
-                    <br></br>
-                    <br></br>
-                    <Button variant="contained">New buy order</Button>
-                    <Button variant="contained" onClick={handleClose}sx={{backgroundColor: 'red', ":hover": {backgroundColor: '#940A00'}}}>Cancel Order</Button>
-                </Box>
-            </Modal>
-        </div>
-    );
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+
+    console.log({
+      ruc: data.get('ruc'),
+      quantity: data.get('quantity'),
+      price: data.get('price'),
+      type: data.get('type')
+    });
+
+    const new_order = {
+      ruc: data.get('ruc'),
+      quantity: data.get('quantity'),
+      price: data.get('price'),
+      type: data.get('type')
+    }
+
+    console.log('Data: ', new_order);
+
+    const config = {
+      'data': new_order,
+      'headers': { Authorization: "Token " + cookies.get("Token") }
+    }
+
+    console.log('Config is: ', config);
+    // console.log({
+    //   headers: {
+    //     Authorization: "Token " + cookies.get("Token")
+    //   },
+    //   data: data,
+    // })
+    axios.post('http://127.0.0.1:8000/api/stocks/new-order/', config).then(console.log('New order'));
+  };
+  return (
+    <div>
+      <Button onClick={handleOpen} variant="contained">Buy</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Buy Order
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Details of order
+          </Typography>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="ruc"
+            label="ruc"
+            name="ruc"
+            autoComplete="ruc"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="quantity"
+            label="quantity"
+            name="quantity"
+            autoComplete="quantity"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="price"
+            label="price"
+            name="price"
+            autoComplete="price"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="type"
+            label="type"
+            name="type"
+            autoComplete="type"
+            autoFocus
+          />
+          <Button type="submit" variant="contained">New buy order</Button>
+          <Button variant="contained" onClick={handleClose} sx={{ backgroundColor: 'red', ":hover": { backgroundColor: '#940A00' } }}>Cancel Order</Button>
+        </Box>
+      </Modal>
+    </div>
+  );
 }

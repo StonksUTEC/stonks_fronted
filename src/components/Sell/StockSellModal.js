@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { FormLabel, Input } from '@mui/material';
+import { FormLabel, Input, TextField } from '@mui/material';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -54,46 +54,78 @@ export default function StockSellModal(props) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      console.log({
+        ruc: data.get('ruc'),
+        quantity: data.get('quantity'),
+        price: data.get('price'),
+        type: data.get('type')
+      });
+      // SignInPost(data.get('username'), data.get('password'));
+    };
     return (
-        <div>
-            <Button onClick={handleOpen} variant="contained">Sell</Button>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box component="form" sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Sell Order
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Details of order
-                    </Typography>
-                    <br></br>
-                    <br></br>
-                    <FormLabel>Company Ruc</FormLabel>
-                    <br></br>
-                    <Input value={props.stockValue.ruc}></Input>
-                    <br></br>
-                    <FormLabel>Quantity</FormLabel>
-                    <br></br>
-                    <Input value={0}></Input>
-                    <br></br>
-                    <FormLabel>Price</FormLabel>
-                    <br></br>
-                    <Input value={props.stockValue.lastest_price}></Input>
-                    <br></br>
-                    <FormLabel>Type</FormLabel>
-                    <br></br>
-                    <SelectVariants/>
-                    <br></br>
-                    <br></br>
-                    <Button variant="contained">New sell order</Button>
-                    <Button variant="contained" onClick={handleClose}sx={{backgroundColor: 'red', ":hover": {backgroundColor: '#940A00'}}}>Cancel Order</Button>
-                </Box>
-            </Modal>
-        </div>
+      <div>
+      <Button onClick={handleOpen} variant="contained">Sell</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Sell Order
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Details of order
+          </Typography>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="ruc"
+            label="ruc"
+            name="ruc"
+            autoComplete="ruc"
+            autoFocus
+          />
+
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="quantity"
+            label="quantity"
+            name="quantity"
+            autoComplete="quantity"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="price"
+            label="price"
+            name="price"
+            autoComplete="price"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="type"
+            label="type"
+            name="type"
+            autoComplete="type"
+            autoFocus
+          />
+          <Button type="submit" variant="contained">New sell order</Button>
+          <Button variant="contained" onClick={handleClose} sx={{ backgroundColor: 'red', ":hover": { backgroundColor: '#940A00' } }}>Cancel Order</Button>
+        </Box>
+      </Modal>
+    </div>
     );
 }
