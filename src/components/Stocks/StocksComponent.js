@@ -20,7 +20,7 @@ function StocksPortfolioData() {
             setStocks(data);
         }
         fetchData();
-    })
+    }, [])
     return (
         <Fragment>
             {
