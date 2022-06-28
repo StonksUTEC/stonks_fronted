@@ -8,65 +8,71 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import cookies from '../../libs/CookiesApp';
 
 const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-    p: 4,
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  p: 4,
 };
 
 export function SelectVariants() {
-    const [age, setAge] = React.useState('');
-  
-    const handleChange = (event) => {
-      setAge(event.target.value);
-    };
-  
-    return (
-      <div>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel id="demo-simple-select-standard-label"></InputLabel>
-          <Select
-            labelId="demo-simple-select-standard-label"
-            id="demo-simple-select-standard"
-            value={age}
-            onChange={handleChange}
-            label=""
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>First</MenuItem>
-            <MenuItem value={20}>Second</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-      </div>
-    );
-  }
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+  return (
+    <div>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-standard-label"></InputLabel>
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={age}
+          onChange={handleChange}
+          label=""
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>First</MenuItem>
+          <MenuItem value={20}>Second</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+  );
+}
 
 export default function StockSellModal(props) {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      console.log({
-        ruc: data.get('ruc'),
-        quantity: data.get('quantity'),
-        price: data.get('price'),
-        type: data.get('type')
-      });
-      // SignInPost(data.get('username'), data.get('password'));
-    };
-    return (
-      <div>
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const new_order = {
+      company_ruc: data.get('ruc'),
+      quantity: data.get('quantity'),
+      price: data.get('price'),
+      transaction_type: data.get('type')
+    }
+    const headers = {
+      'headers': { Authorization: "Token " + cookies.get("Token") }
+    }
+    // TODO: Make new sell order
+    // axios.post('http://127.0.0.1:8000/api/stocks/new-order/', new_order, headers).then(console.log('New order')).catch(console.log('No orders'));
+  };
+
+  return (
+    <div>
       <Button onClick={handleOpen} variant="contained">Sell</Button>
       <Modal
         open={open}
@@ -127,5 +133,5 @@ export default function StockSellModal(props) {
         </Box>
       </Modal>
     </div>
-    );
+  );
 }

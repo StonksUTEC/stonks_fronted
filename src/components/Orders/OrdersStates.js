@@ -5,6 +5,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { OrderBox, OrderBoxCancel, OrderBoxCompleted } from './OrderBox';
+import { useEffect } from 'react';
+import { getOrders } from '../../connections/orders/Order';
+import { useState } from 'react';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,32 +48,38 @@ export default function OrdersStates() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [orders, setOrders] = useState([])
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getOrders();
+      console.log(data);
+      setOrders(data);
+    }
+    fetchData();
+  }, []);
+  let incompleted_orders = 0;
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Cancel order" {...a11yProps(0)} />
-          <Tab label="In process" {...a11yProps(1)} />
-          <Tab label="Completed" {...a11yProps(2)} />
+          <Tab label="In process" {...a11yProps(0)} />
+          <Tab label="Completed" {...a11yProps(1)} />
         </Tabs>
       </Box>
+
       <TabPanel value={value} index={0}>
-        <OrderBoxCancel/>
-        <OrderBoxCancel/>
-        <OrderBoxCancel/>
-        <OrderBoxCancel/>
+        {
+        orders.map((order) => (
+          <OrderBox key={incompleted_orders++} order={order} title="Hello">{order}</OrderBox>
+        ))}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <OrderBox/>
-        <OrderBox/>
-        <OrderBox/>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <OrderBoxCompleted/>
-        <OrderBoxCompleted/>
-        <OrderBoxCompleted/>
+        <OrderBoxCompleted />
+        <OrderBoxCompleted />
+        <OrderBoxCompleted />
       </TabPanel>
     </Box>
   );
+  
 }

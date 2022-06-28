@@ -45,21 +45,21 @@ export const OrderBoxCancel = () => {
     );
 }
 
-export const OrderBox = () => {
+export const OrderBox = ({order}) => {
     return (
         <div className='order-box'>
             <div className='order-box-wrapper'>
                 <div className='order-box-header'>
-                    <p className='order-box-item'>SYMBOL</p>
+                    <p className='order-box-item'>Symbol</p>
                     <p className='order-box-item'>Quantity</p>
                     <p className='order-box-item'>Price</p>
                     <p className='order-box-item'>Type</p>
                 </div>
                 <div className='order-box-data'>
-                    <p className='order-box-item'>UTEC</p>
-                    <p className='order-box-item'>127</p>
-                    <p className='order-box-item'>99.99</p>
-                    <p className='order-box-item'>BM</p>
+                    <p className='order-box-item'>{order.company_ruc.company_name}</p>
+                    <p className='order-box-item'>{order.quantity}</p>
+                    <p className='order-box-item'>{order.price}</p>
+                    <p className='order-box-item'>{order.transaction_type}</p>
                 </div>
             </div>
 

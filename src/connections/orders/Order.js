@@ -1,9 +1,12 @@
 import axios from 'axios';
+import cookies from '../../libs/CookiesApp';
 
-const axiosOrders = axios.create({baseURL:'http://localhost:3001'});
+const axiosOrders = axios.create({baseURL:'http://localhost:8000'});
 
-export const getOrders = () => {
-    return axiosOrders('api/orders').then(res => res.data);
+export function getOrders(){
+    const headers = { 
+        'headers': { Authorization: "Token " + cookies.get("Token") }}
+    return axiosOrders.get('/api/stocks/orders/', headers).then(res => res.data);
 };
 
 export const getCompletedOrders = () => {

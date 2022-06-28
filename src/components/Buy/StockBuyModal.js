@@ -69,27 +69,21 @@ export default function StockBuyModal(props) {
     });
 
     const new_order = {
-      ruc: data.get('ruc'),
+      company_ruc: data.get('ruc'),
       quantity: data.get('quantity'),
       price: data.get('price'),
-      type: data.get('type')
+      transaction_type: data.get('type')
     }
 
     console.log('Data: ', new_order);
 
-    const config = {
-      'data': new_order,
-      'headers': { Authorization: "Token " + cookies.get("Token") }
-    }
-
-    console.log('Config is: ', config);
-    // console.log({
-    //   headers: {
-    //     Authorization: "Token " + cookies.get("Token")
-    //   },
-    //   data: data,
-    // })
-    axios.post('http://127.0.0.1:8000/api/stocks/new-order/', config).then(console.log('New order'));
+    // const config = {
+    //   'data': new_order,
+    // }
+    const headers = { 
+      'headers': { Authorization: "Token " + cookies.get("Token") }}
+    // console.log('Config is: ', config);
+    axios.post('http://127.0.0.1:8000/api/stocks/new-order/', new_order, headers).then(console.log('New order'));
   };
   return (
     <div>
