@@ -1,7 +1,7 @@
 import axios from 'axios';
 import cookies from '../../libs/CookiesApp';
 
-const axiosOrders = axios.create({baseURL:'http://localhost:8000'});
+const axiosOrders = axios.create({baseURL:'https://djangoappstonks.azurewebsites.net'});
 
 export function getOrders(){
     const headers = { 

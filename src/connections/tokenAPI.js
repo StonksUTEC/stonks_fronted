@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const axiosToken = axios.create(
     {
-        baseURL: 'http://localhost:3001/'
+        baseURL: 'https://djangoappstonks.azurewebsites.net'
     }
 );
 

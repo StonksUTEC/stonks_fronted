@@ -83,7 +83,7 @@ export default function StockBuyModal(props) {
     const headers = { 
       'headers': { Authorization: "Token " + cookies.get("Token") }}
     // console.log('Config is: ', config);
-    axios.post('http://127.0.0.1:8000/api/stocks/new-order/', new_order, headers).then(console.log('New order'));
+    axios.post('https://djangoappstonks.azurewebsites.net/api/stocks/new-order/', new_order, headers).then(console.log('New order'));
   };
   return (
     <div>
