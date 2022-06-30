@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -52,6 +52,11 @@ export default function SignUpSide() {
               alignItems: 'center',
             }}
           >
+            <Box sx={{ display: 'flex',alignItems: 'center', marginLeft: '3%', width: '100%', marginBottom: '100px'}}>
+              <Link href="/" variant="body2">
+                    <ArrowCircleLeftIcon hred="/home" style={{ fontSize: 40 }} sx={{color: '#166bc6'}}/>
+              </Link>
+            </Box>
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>

@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingView />} />
+        <Route path="/" element={<LandingView/>} />
         <Route path="signup" element={<SignUpView />} />
         <Route path="signin" element={<SignInView />} />
         {/* <Route path="home" element={<HomeView />} /> */}
