@@ -34,7 +34,7 @@ const Landing = () => {
             textAlign="center"
             fontWeight="600"
           >
-            Learning all about investing
+            Learn all about investing
           </Typography>
           <Button
             style={{
