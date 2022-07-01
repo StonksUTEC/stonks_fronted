@@ -3,7 +3,7 @@ import { React } from "react";
 import { Typography, Button } from "@mui/material";
 import Stonks from "./img/s.jpg";
 import { Avatar } from '@mui/material';
-import { getUsername} from '../connections/userAPI';
+// import { getUsername} from '../connections/userAPI';
 
 const HeaderWrapper = styled.div`
 align-items: center;

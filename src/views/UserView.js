@@ -4,11 +4,15 @@ import styled from '@emotion/styled'
 import Stonks from "./img/s.jpg";
 import { Avatar } from '@mui/material';
 import UserData from './components/UserData'
+import { ButtonGroup } from '@mui/material';
+import { Button } from '@mui/material';
 import Cookies from 'universal-cookie';
+import Stonkss from "./img/s.png";
+import Logo from "./img/logo.png";
 import HeaderView from './Headerview'
 import StyledBadge from '@mui/material/Badge';
 // API
-import { getUsername} from '../connections/userAPI';
+import { getUsername, isAuthenticated} from '../connections/userAPI';
 import { SERVER_HOST } from '../libs/ServerConnection';
 const St = styled.div`
   width: 80%;
@@ -52,7 +56,7 @@ const HomeView = () => {
         Authorization: "Token " + cookies.get("Token")
       }
     }
-    axios.get(SERVER_HOST + '/api/auth/user/',config)
+    axios.get(SERVER_HOST  + '/api/auth/user/',config)
     .then(response => {  
       let json = response.data;
       const currentuserdata = json;
@@ -70,7 +74,6 @@ const HomeView = () => {
         <br></br>
            <St>
             <ImgBlock>
-            {getUsername()}
             <br></br>
             <StyledBadge
               overlap="circular"
