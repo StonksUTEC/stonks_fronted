@@ -1,7 +1,7 @@
 import axios from 'axios';
 import cookies from '../../libs/CookiesApp';
 
-const axiosSignin = axios.create({baseURL:'https://djangoappstonks.azurewebsites.net'});
+const axiosSignin = axios.create({baseURL:'http://127.0.0.1:8000'});
 
 export function SignInPost(dni, password) {
     console.log(`Is sending ${dni} ${password}`);

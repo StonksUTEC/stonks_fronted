@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import React from 'react'
 import "./orders.css";
 
-export const OrderBoxCompleted = () => {
+export const OrderBoxCompleted = ({order}) => {
     return (
         <div className='order-box'>
             <div className='order-box-wrapper'>
@@ -13,10 +13,10 @@ export const OrderBoxCompleted = () => {
                     <p className='order-box-item'>Type</p>
                 </div>
                 <div className='order-box-data'>
-                    <p className='order-box-item'>UTEC</p>
-                    <p className='order-box-item'>127</p>
-                    <p className='order-box-item'>99.99</p>
-                    <p className='order-box-item'>BM</p>
+                    <p className='order-box-item'>{order.company_ruc.company_name}</p>
+                    <p className='order-box-item'>{order.quantity}</p>
+                    <p className='order-box-item'>{order.price}</p>
+                    <p className='order-box-item'>{order.transaction_type}</p>
                 </div>
             </div>
             <div className='order-box-completed-icon'>Completed</div>
