@@ -78,7 +78,7 @@ const HeaderView = () => {
         <div></div>
         <ButtonsWrapper>
         <Typography fontWeight="800" fontSize="24px" color="primary" marginRight="2em">
-        Welcome {getUsername()}
+        Welcome 
         </Typography>
         <Avatar alt="s1" src={Stonks} sx={{ width: 60, height: 60} }/>
         </ButtonsWrapper>
