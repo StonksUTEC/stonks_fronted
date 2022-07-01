@@ -1,7 +1,6 @@
 import React from 'react'
 import StocksBuyComponent from '../components/Buy/StocksBuyComponent'
 import Sidebar from '../components/SideBar/Sidebar'
-import StocksComponent from '../components/Stocks/StocksComponent'
 import "./general.css"
 import HeaderView from './Headerview'
 

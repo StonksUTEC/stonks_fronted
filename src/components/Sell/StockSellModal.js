@@ -68,7 +68,7 @@ export default function StockSellModal({stockValue}) {
     //   'headers': { Authorization: "Token " + cookies.get("Token") }
     // }
     // TODO: Make new sell order
-    // axios.post('http://127.0.0.1:8000/api/stocks/new-order/', new_order, headers).then(console.log('New order')).catch(console.log('No orders'));
+    // axios.post('https://djangoappstonks.azurewebsites.net/api/stocks/new-order/', new_order, headers).then(console.log('New order')).catch(console.log('No orders'));
   };
 
   return (

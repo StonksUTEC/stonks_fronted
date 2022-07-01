@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { SERVER_HOST } from '../libs/ServerConnection';
 
 export const axiosToken = axios.create(
     {
-        baseURL: 'http://localhost:3001/'
+        baseURL: SERVER_HOST
     }
 );
 

@@ -4,15 +4,12 @@ import styled from '@emotion/styled'
 import Stonks from "./img/s.jpg";
 import { Avatar } from '@mui/material';
 import UserData from './components/UserData'
-import { ButtonGroup } from '@mui/material';
-import { Button } from '@mui/material';
 import Cookies from 'universal-cookie';
-import Stonkss from "./img/s.png";
-import Logo from "./img/logo.png";
 import HeaderView from './Headerview'
 import StyledBadge from '@mui/material/Badge';
 // API
-import { getUsername, isAuthenticated} from '../connections/userAPI';
+import { getUsername} from '../connections/userAPI';
+import { SERVER_HOST } from '../libs/ServerConnection';
 const St = styled.div`
   width: 80%;
   text-align : center;
@@ -56,7 +53,7 @@ const HomeView = () => {
         Authorization: "Token " + cookies.get("Token")
       }
     }
-    axios.get('http://localhost:8000/api/auth/user/',config)
+    axios.get(SERVER_HOST + '/api/auth/user/',config)
     .then(response => {  
       let json = response.data;
       const currentuserdata = json;

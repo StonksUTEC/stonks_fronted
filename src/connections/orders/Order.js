@@ -1,7 +1,8 @@
 import axios from 'axios';
 import cookies from '../../libs/CookiesApp';
+import { SERVER_HOST } from '../../libs/ServerConnection';
 
-const axiosOrders = axios.create({baseURL:'http://localhost:8000'});
+const axiosOrders = axios.create({baseURL:SERVER_HOST});
 
 export function getOrders(){
     const headers = { 

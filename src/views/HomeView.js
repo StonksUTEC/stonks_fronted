@@ -3,9 +3,6 @@ import Sidebar from '../components/SideBar/Sidebar'
 import HeaderView from './Headerview'
 import Home from "./img/h.png";
 
-// API
-import { getUsername, isAuthenticated} from '../connections/userAPI';
-
 const HomeView = () => {
   return (
     <div className='dashboard-block'>

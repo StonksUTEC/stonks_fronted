@@ -10,6 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import axios from 'axios';
 import cookies from '../../libs/CookiesApp';
+import { SERVER_HOST } from '../../libs/ServerConnection';
 
 const style = {
   position: 'absolute',
@@ -83,7 +84,7 @@ export default function StockBuyModal({stock}) {
     const headers = { 
       'headers': { Authorization: "Token " + cookies.get("Token") }}
     // console.log('Config is: ', config);
-    axios.post('http://127.0.0.1:8000/api/stocks/new-order/', new_order, headers).then(console.log('New order'));
+    axios.post(SERVER_HOST + '/api/stocks/new-order/', new_order, headers).then(console.log('New order'));
   };
   return (
     <div>

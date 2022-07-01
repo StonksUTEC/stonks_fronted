@@ -1,7 +1,8 @@
 import axios from 'axios';
 import cookies from '../../libs/CookiesApp';
+import { SERVER_HOST } from '../../libs/ServerConnection';
 
-const axiosSignin = axios.create({baseURL:'http://127.0.0.1:8000'});
+const axiosSignin = axios.create({baseURL:SERVER_HOST});
 
 export function SignInPost(dni, password) {
     console.log(`Is sending ${dni} ${password}`);
