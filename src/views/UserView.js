@@ -30,7 +30,6 @@ const ImgBlock =styled.div`
   font-weight: bold;
   font-family:roboto;
   font-size:40px;
-  margin-top:30%;
   align-items: center;
   width: 230px;
   height: 230px;

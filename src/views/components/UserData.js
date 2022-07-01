@@ -68,56 +68,18 @@ export default function UserData(props) {
         return (
           
               <InternalBlock>
-                <Label>DNI:
+                <<Label>Account Information</Label>
                 <br></br>
+
+                <Label>DNI:{user.dni}</Label>
                 <br></br>
-                <TextField
-                disabled
-                id="outlined-disabled"
-                label="DNI"
-                defaultValue={user.dni}
-                
-                  />
-                </Label>
-               
+
+                <Label>Names:{user.names}</Label>
                   <br></br>
-                  <Label>Names:
+                <Label>Lastname:{user.lastname}</Label>
                   <br></br>
-                  <br></br>
-                  <TextField
-                disabled
-                id="outlined-disabled"
-                label="Names"
-                defaultValue={user.names}
-                  />
-                  </Label>
-                  <br></br>
-                  <Label>Lastname:
-                  <br></br>
-                  <br></br>
-                  <TextField
-                disabled
-                id="outlined-disabled"
-                label="Lastname"
-                defaultValue={user.lastname}
-                  />
-                  </Label>
-                  <br></br>
-                  <Label>Email:
-                  <br></br>
-                  <br></br>
-                  <TextField
-                disabled
-                id="outlined-disabled"
-                label="Email"
-                defaultValue={user.email}
-                  /></Label>
-                  {/*
-                  <Label>DNI: {user.dni}</Label>
-                <Label>Names: {user.names}</Label>
-                <Label>Lastname: {user.lastname}</Label>
-                <Label>Email: {user.email}</Label>
-                  */}
+                <Label>Email:{user.email}</Label>
+                  
                 
                                 
               </InternalBlock>  
