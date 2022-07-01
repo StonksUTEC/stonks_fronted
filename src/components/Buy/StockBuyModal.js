@@ -53,8 +53,14 @@ export function SelectVariants() {
   );
 }
 
-export default function StockBuyModal({stock}) {
+export default function StockBuyModal({ stock }) {
   const [open, setOpen] = React.useState(false);
+  const [type, setType] = React.useState('');
+
+  const handleChange = (event) => {
+    setType(event.target.value);
+  };
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -67,13 +73,12 @@ export default function StockBuyModal({stock}) {
       price: data.get('price'),
       transaction_type: data.get('type')
     }
-
-
-    // const config = {
-    //   'data': new_order,
-    // }
-    const headers = { 
-      'headers': { Authorization: "Token " + cookies.get("Token") }}
+    const config = {
+      'data': new_order,
+    }
+    const headers = {
+      'headers': { Authorization: "Token " + cookies.get("Token") }
+    }
     axios.post(SERVER_HOST + '/api/stocks/new-order/', new_order, headers).then(
       window.location.replace('/orders')
     );
@@ -126,16 +131,30 @@ export default function StockBuyModal({stock}) {
             defaultValue={stock.lastest_price}
             autoFocus
           />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="type"
-            label="type"
-            name="type"
-            autoComplete="type"
-            autoFocus
-          />
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Type</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              margin="normal"
+              required
+              fullWidth
+              label="type"
+              name="type"
+              autoComplete="type"
+              autoFocus
+              onChange={handleChange}
+            >
+              <MenuItem value={"BM"}>BM</MenuItem>
+              <MenuItem value={"BL"}>BL</MenuItem>
+              <MenuItem value={"BS"}>BS</MenuItem>
+              <MenuItem value={"SL"}>SL</MenuItem>
+              <MenuItem value={"SS"}>SS</MenuItem>
+              <MenuItem value={"SM"}>SM</MenuItem>
+            </Select>
+          </FormControl>
+          {/* Divider */}
+          <hr></hr>
           <Button type="submit" variant="contained">New buy order</Button>
           <Button variant="contained" onClick={handleClose} sx={{ backgroundColor: 'red', ":hover": { backgroundColor: '#940A00' } }}>Cancel Order</Button>
         </Box>
