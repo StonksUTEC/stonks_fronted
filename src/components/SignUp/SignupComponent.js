@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import { SignUpPost } from '../../connections/auth/authAPI';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -32,10 +33,7 @@ export default function SignUpSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    SignUpPost(data.get('dni'), data.get('names'), data.get('lastname'), data.get('email'), data.get('password'));
   };
 
   return (
@@ -68,10 +66,40 @@ export default function SignUpSide() {
                 margin="normal"
                 required
                 sx={{width: '80%'}}
+                id="dni"
+                label="DNI"
+                name="dni"
+                autoComplete="DNI"
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                sx={{width: '80%'}}
+                id="names"
+                label="Names"
+                name="names"
+                autoComplete="Your name"
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                sx={{width: '80%'}}
+                id="lastname"
+                label="Lastname"
+                name="lastname"
+                autoComplete="Your lastname"
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                sx={{width: '80%'}}
                 id="email"
-                label="Email Address"
+                label="Email"
                 name="email"
-                autoComplete="email"
+                autoComplete="Your email"
                 autoFocus
               />
               <TextField
@@ -82,38 +110,9 @@ export default function SignUpSide() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                autoComplete="Your password"
               />
-              <TextField
-                margin="normal"
-                required
-                sx={{width: '80%'}}
-                name="DNI"
-                label="DNI"
-                type="DNI"
-                id="DNI"
-                autoComplete="current-DNI"
-              />
-              <TextField
-                margin="normal"
-                required
-                sx={{width: '80%'}}
-                name="names"
-                label="names"
-                type="names"
-                id="names"
-                autoComplete="current-names"
-              />
-              <TextField
-                margin="normal"
-                required
-                sx={{width: '80%'}}
-                name="lastname"
-                label="lastname"
-                type="lastname"
-                id="lastname"
-                autoComplete="current-lastname"
-              />
+              
               <Box sx={{textAlign: 'start', paddingLeft: '10%'}}>
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}

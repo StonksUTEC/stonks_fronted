@@ -76,7 +76,7 @@ export default function OrdersStates() {
       <TabPanel value={value} index={0}>
         {
         orders.map((order) => (
-          <OrderBox key={incompleted_orders++} order={order}>{order}</OrderBox>
+          order.completeorder == null ? <OrderBox key={incompleted_orders++} order={order}>{order}</OrderBox> : null
         ))}
       </TabPanel>
       <TabPanel value={value} index={1}>

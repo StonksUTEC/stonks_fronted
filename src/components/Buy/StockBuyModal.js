@@ -61,14 +61,6 @@ export default function StockBuyModal({stock}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-
-    console.log({
-      ruc: data.get('ruc'),
-      quantity: data.get('quantity'),
-      price: data.get('price'),
-      type: data.get('type')
-    });
-
     const new_order = {
       company_ruc: data.get('ruc'),
       quantity: data.get('quantity'),
@@ -76,15 +68,15 @@ export default function StockBuyModal({stock}) {
       transaction_type: data.get('type')
     }
 
-    console.log('Data: ', new_order);
 
     // const config = {
     //   'data': new_order,
     // }
     const headers = { 
       'headers': { Authorization: "Token " + cookies.get("Token") }}
-    // console.log('Config is: ', config);
-    axios.post(SERVER_HOST + '/api/stocks/new-order/', new_order, headers).then(console.log('New order'));
+    axios.post(SERVER_HOST + '/api/stocks/new-order/', new_order, headers).then(
+      window.location.replace('/orders')
+    );
   };
   return (
     <div>

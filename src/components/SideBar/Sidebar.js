@@ -1,7 +1,7 @@
 import "./sidebar.css";
 import SidebarLink from "./SidebarLink";
 import HomeIcon from "@material-ui/icons/Home";
-import SearchIcon from "@material-ui/icons/Search";
+// import SearchIcon from "@material-ui/icons/Search";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SellIcon from '@mui/icons-material/Sell';
@@ -22,9 +22,9 @@ function Sidebar() {
             <Link to="/user" style={{ textDecoration: 'none', color: 'inherit' }}>
             <SidebarLink text="User" Icon={AccountCircleIcon} />
             </Link>
-            <Link to="/catalogue"  style={{ textDecoration: 'none', color: 'inherit' }}>
+            {/* <Link to="/catalogue"  style={{ textDecoration: 'none', color: 'inherit' }}>
             <SidebarLink text="Catalogue" Icon={SearchIcon} />
-            </Link>
+            </Link> */}
             <Link to="/buy" style={{ textDecoration: 'none', color: 'inherit' }}>
             <SidebarLink text="Buy" Icon={ShoppingCartIcon} />
             </Link>

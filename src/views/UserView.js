@@ -57,7 +57,6 @@ const HomeView = () => {
     .then(response => {  
       let json = response.data;
       const currentuserdata = json;
-      console.log(currentuserdata);
       getUserData(currentuserdata);
     }).catch(error => {
       console.log(error);

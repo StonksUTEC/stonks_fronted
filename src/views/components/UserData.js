@@ -65,7 +65,6 @@ export default function UserData(props) {
 
     const displayUserData = (props) => {
         const user = props.userdata;
-        console.log(user)
         return (
           
               <InternalBlock>
