@@ -3,11 +3,15 @@ import StocksBuyComponent from '../components/Buy/StocksBuyComponent'
 import Sidebar from '../components/SideBar/Sidebar'
 import StocksComponent from '../components/Stocks/StocksComponent'
 import "./general.css"
+import HeaderView from './Headerview'
+
 const BuyView = () => {
   return (
     <div className='dashboard-block'>
         <Sidebar></Sidebar>
         <div className='dashboard-content'>
+        <HeaderView/>
+
             <h2>Buy</h2>
             <StocksBuyComponent/>
         </div>
