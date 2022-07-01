@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { OrderBox, OrderBoxCancel, OrderBoxCompleted } from './OrderBox';
 import { useEffect } from 'react';
-import { getCompletedOrders, getOrders } from '../../connections/orders/Order';
+import { getOrders } from '../../connections/orders/Order';
 import { useState } from 'react';
 
 function TabPanel(props) {
@@ -49,7 +49,6 @@ export default function OrdersStates() {
     setValue(newValue);
   };
   const [orders, setOrders] = useState([])
-  const [completedOrders, setCompletedOrders] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,12 +56,6 @@ export default function OrdersStates() {
       console.log(data);
       setOrders(data);
     }
-    const fetchCompletedOrders = async () => {
-      const data = await getCompletedOrders();
-      console.log(data);
-      setCompletedOrders(data);
-    }
-    fetchCompletedOrders();
     fetchData();
   }, []);
   let incompleted_orders = 0;
@@ -78,15 +71,13 @@ export default function OrdersStates() {
       <TabPanel value={value} index={0}>
         {
         orders.map((order) => (
-          <OrderBox key={incompleted_orders++} order={order}>{order}</OrderBox>
+          <OrderBox key={incompleted_orders++} order={order} title="Hello">{order}</OrderBox>
         ))}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        {
-          completedOrders.map((order) => (
-            <OrderBoxCompleted key={incompleted_orders++} order={order}>{order}</OrderBoxCompleted>
-          ))
-        }
+        <OrderBoxCompleted />
+        <OrderBoxCompleted />
+        <OrderBoxCompleted />
       </TabPanel>
     </Box>
   );

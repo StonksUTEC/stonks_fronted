@@ -88,31 +88,31 @@ export default function SignUpSide() {
                 margin="normal"
                 required
                 sx={{width: '80%'}}
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                name="DNI"
+                label="DNI"
+                type="DNI"
+                id="DNI"
+                autoComplete="current-DNI"
               />
               <TextField
                 margin="normal"
                 required
                 sx={{width: '80%'}}
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                name="names"
+                label="names"
+                type="names"
+                id="names"
+                autoComplete="current-names"
               />
               <TextField
                 margin="normal"
                 required
                 sx={{width: '80%'}}
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                name="lastname"
+                label="lastname"
+                type="lastname"
+                id="lastname"
+                autoComplete="current-lastname"
               />
               <Box sx={{textAlign: 'start', paddingLeft: '10%'}}>
               <FormControlLabel

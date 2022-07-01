@@ -1,5 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/SideBar/Sidebar'
+import HeaderView from './Headerview'
+import Home from "./img/h.png";
 
 // API
 import { getUsername, isAuthenticated} from '../connections/userAPI';
@@ -9,7 +11,15 @@ const HomeView = () => {
     <div className='dashboard-block'>
         <Sidebar></Sidebar>
         <div className='dashboard-content'>
-            <h2>Welcome {getUsername()}</h2>
+        <HeaderView/>
+
+            <center>
+            <img
+              alt="home"
+              style={{ width: "60%" }}
+              src={Home}
+            ></img>
+            </center>
         </div>
     </div>
   )

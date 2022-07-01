@@ -11,7 +11,7 @@ import BuyView from './views/BuyView';
 import SellView from './views/SellView';
 import SettingsView from './views/SettingsView';
 import PrivateRoute from './libs/PrivateRoute';
-
+import UserView from './views/UserView'
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +23,9 @@ function App() {
         <Route path="home" element={
           <PrivateRoute children={<HomeView />}>
           </PrivateRoute>
+        } />
+        <Route path="user" element={
+          <PrivateRoute children={<UserView />} />
         } />
         <Route path="portfolio" element={
           <PrivateRoute children={<PortfolioView />} />

@@ -7,7 +7,8 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SellIcon from '@mui/icons-material/Sell';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import PostAddIcon from '@mui/icons-material/PostAdd';
-
+import LogoutIcon from '@mui/icons-material/Logout';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
@@ -17,6 +18,9 @@ function Sidebar() {
         <div className="sidebar">
             <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
             <SidebarLink text="Home" Icon={HomeIcon} />
+            </Link>
+            <Link to="/user" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <SidebarLink text="User" Icon={AccountCircleIcon} />
             </Link>
             <Link to="/catalogue"  style={{ textDecoration: 'none', color: 'inherit' }}>
             <SidebarLink text="Catalogue" Icon={SearchIcon} />
@@ -36,8 +40,10 @@ function Sidebar() {
             <Link to="/settings" style={{ textDecoration: 'none', color: 'inherit' }}>
             <SidebarLink text="Settings" Icon={MoreHorizIcon} />
             </Link>
-            <Button onClick={signout}variant="contained">Sign out</Button>
+            <br></br>
+            <center><Button onClick={signout}variant="contained" color="error"  startIcon={<LogoutIcon />}>Sign out</Button></center>
         </div>
     );
 }
+
 export default Sidebar;
