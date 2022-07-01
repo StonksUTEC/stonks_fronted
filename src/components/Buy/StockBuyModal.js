@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { FormLabel, Input, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -52,7 +52,7 @@ export function SelectVariants() {
   );
 }
 
-export default function StockBuyModal(props) {
+export default function StockBuyModal({stock}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -109,6 +109,7 @@ export default function StockBuyModal(props) {
             label="ruc"
             name="ruc"
             autoComplete="ruc"
+            defaultValue={stock.ruc}
             autoFocus
           />
           <TextField
@@ -129,6 +130,7 @@ export default function StockBuyModal(props) {
             label="price"
             name="price"
             autoComplete="price"
+            defaultValue={stock.lastest_price}
             autoFocus
           />
           <TextField

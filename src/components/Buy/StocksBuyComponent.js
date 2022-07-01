@@ -11,21 +11,20 @@ import { getStocks } from '../../connections/stocks/Stocks';
 import { Fragment } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Button } from '@mui/material';
 import StockBuyModal from './StockBuyModal';
 
 // Style of modal
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
+// const style = {
+//     position: 'absolute',
+//     top: '50%',
+//     left: '50%',
+//     transform: 'translate(-50%, -50%)',
+//     width: 400,
+//     bgcolor: 'background.paper',
+//     border: '2px solid #000',
+//     boxShadow: 24,
+//     p: 4,
+//   };
 
 // General function to get data
 function StocksBuyData() {
@@ -53,7 +52,7 @@ function StocksBuyData() {
                         <TableCell align="center">{stock.lastest_price}</TableCell>
                         {/* <TableCell align="center">{stock.quantity}</TableCell> */}
                         <TableCell align="center">
-                            <StockBuyModal stockValue={stock} sx={{textAlign: 'center'}}>Buy</StockBuyModal>
+                            <StockBuyModal stock={stock} sx={{textAlign: 'center'}}>Buy</StockBuyModal>
                         </TableCell>
                     </TableRow>
                 ))

@@ -3,12 +3,12 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { FormLabel, Input, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import cookies from '../../libs/CookiesApp';
+// import cookies from '../../libs/CookiesApp';
 
 const style = {
   position: 'absolute',
@@ -51,22 +51,22 @@ export function SelectVariants() {
   );
 }
 
-export default function StockSellModal(props) {
+export default function StockSellModal({stockValue}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const new_order = {
-      company_ruc: data.get('ruc'),
-      quantity: data.get('quantity'),
-      price: data.get('price'),
-      transaction_type: data.get('type')
-    }
-    const headers = {
-      'headers': { Authorization: "Token " + cookies.get("Token") }
-    }
+    // const data = new FormData(event.currentTarget);
+    // const new_order = {
+    //   company_ruc: data.get('ruc'),
+    //   quantity: data.get('quantity'),
+    //   price: data.get('price'),
+    //   transaction_type: data.get('type')
+    // }
+    // const headers = {
+    //   'headers': { Authorization: "Token " + cookies.get("Token") }
+    // }
     // TODO: Make new sell order
     // axios.post('http://127.0.0.1:8000/api/stocks/new-order/', new_order, headers).then(console.log('New order')).catch(console.log('No orders'));
   };
@@ -94,6 +94,7 @@ export default function StockSellModal(props) {
             id="ruc"
             label="ruc"
             name="ruc"
+            defaultValue={stockValue.ruc}
             autoComplete="ruc"
             autoFocus
           />
@@ -116,6 +117,7 @@ export default function StockSellModal(props) {
             label="price"
             name="price"
             autoComplete="price"
+            defaultValue={stockValue.lastest_price}
             autoFocus
           />
           <TextField

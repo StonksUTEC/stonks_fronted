@@ -10,7 +10,9 @@ export function getOrders(){
 };
 
 export const getCompletedOrders = () => {
-    // api/orders/completed
+    const headers = { 
+        'headers': { Authorization: "Token " + cookies.get("Token") }}
+    return axiosOrders.get('/api/stocks/user-completed-orders/', headers).then(res => res.data);
 };
 
 
