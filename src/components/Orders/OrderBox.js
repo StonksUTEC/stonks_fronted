@@ -7,7 +7,7 @@ export const OrderBoxCompleted = ({order}) => {
         <div className='order-box'>
             <div className='order-box-wrapper'>
                 <div className='order-box-header'>
-                    <p className='order-box-item'>SYMBOL</p>
+                    <p className='order-box-item'>RUC</p>
                     <p className='order-box-item'>Quantity</p>
                     <p className='order-box-item'>Price</p>
                     <p className='order-box-item'>Type</p>
