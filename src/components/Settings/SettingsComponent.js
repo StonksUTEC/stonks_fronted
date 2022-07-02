@@ -25,6 +25,18 @@ export default function SettingSide() {
     axios.post(SERVER_HOST + '/api/auth/change-data/', update_data, headers);
   };
 
+  const handlePasswordChange = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const update_data = {
+      password: data.get('password'),
+    }
+    const headers = {
+      'headers': { Authorization: "Token " + cookies.get("Token") }
+    }
+    axios.post(SERVER_HOST + '/api/auth/change-password/', update_data, headers);
+  };
+
   return (
     <ThemeProvider theme={theme}>
             <br></br>
@@ -87,6 +99,30 @@ export default function SettingSide() {
                 sx={{ mt: 3, mb: 2,width: '55%' }}
               >
                 Update
+              </Button>
+              <Grid container>
+                
+              </Grid>
+            </Box>
+            <br></br>
+            <h2><center>Change Password</center></h2>
+            <Box component="form" noValidate onSubmit={handlePasswordChange} sx={{ mt: 1 , textAlign: 'center'}}>
+              <TextField
+                margin="normal"
+                required
+                sx={{width: '55%'}}
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{ mt: 3, mb: 2,width: '55%' }}
+              >
+                New Password
               </Button>
               <Grid container>
                 
