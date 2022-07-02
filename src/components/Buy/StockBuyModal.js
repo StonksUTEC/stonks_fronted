@@ -64,7 +64,7 @@ export default function StockBuyModal({ stock }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const new_order = {
@@ -79,7 +79,8 @@ export default function StockBuyModal({ stock }) {
     const headers = {
       'headers': { Authorization: "Token " + cookies.get("Token") }
     }
-    axios.post(SERVER_HOST + '/api/stocks/new-order/', new_order, headers).then(
+    
+    await axios.post(SERVER_HOST + '/api/stocks/new-order/', new_order, headers).then(
       window.location.replace('/orders')
     );
   };
