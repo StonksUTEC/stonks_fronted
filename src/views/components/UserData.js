@@ -42,6 +42,8 @@ export default function UserData(props) {
                 <Label>Lastname: {user.lastname}</Label>
                   <br></br>
                 <Label>Email: {user.email}</Label>
+                <br></br>
+                <Label>Money: {user.money}</Label>
               </InternalBlock>  
           )
     }
