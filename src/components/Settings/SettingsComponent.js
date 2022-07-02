@@ -3,14 +3,26 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import axios from 'axios';
+import cookies from '../../libs/CookiesApp';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { SERVER_HOST } from '../../libs/ServerConnection';
 
 const theme = createTheme();
 
 export default function SettingSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
-    // const data = new FormData(event.currentTarget);
+    const data = new FormData(event.currentTarget);
+    const update_data = {
+      names: data.get('names'),
+      lastname: data.get('lastname'),
+      email: data.get('email'),
+    }
+    const headers = {
+      'headers': { Authorization: "Token " + cookies.get("Token") }
+    }
+    axios.post(SERVER_HOST + '/api/auth/change-data/', update_data, headers);
   };
 
   return (
@@ -28,7 +40,7 @@ export default function SettingSide() {
                 autoComplete="email"
                 autoFocus
               />
-              <TextField
+              {/* <TextField
                 margin="normal"
                 required
                 sx={{width: '55%'}}
@@ -37,8 +49,8 @@ export default function SettingSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              />
-              <TextField
+              /> */}
+              {/* <TextField
                 margin="normal"
                 required
                 sx={{width: '55%'}}
@@ -47,7 +59,7 @@ export default function SettingSide() {
                 type="DNI"
                 id="DNI"
                 autoComplete="current-DNI"
-              />
+              /> */}
               <TextField
                 margin="normal"
                 required
