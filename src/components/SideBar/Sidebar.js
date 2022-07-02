@@ -26,7 +26,7 @@ function Sidebar() {
             <SidebarLink text="Catalogue" Icon={SearchIcon} />
             </Link> */}
             <Link to="/buy" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <SidebarLink text="Buy" Icon={ShoppingCartIcon} />
+            <SidebarLink text="Market" Icon={ShoppingCartIcon} />
             </Link>
             {/* <Link to="/sell" style={{ textDecoration: 'none', color: 'inherit' }}>
             <SidebarLink text="Sell" Icon={SellIcon} />

@@ -85,7 +85,7 @@ export default function StockBuyModal({ stock }) {
   };
   return (
     <div>
-      <Button onClick={handleOpen} variant="contained">Buy</Button>
+      <Button onClick={handleOpen} variant="contained">New order</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -94,7 +94,7 @@ export default function StockBuyModal({ stock }) {
       >
         <Box component="form" noValidate onSubmit={handleSubmit} sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Buy Order
+            New order
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Details of order
@@ -155,7 +155,7 @@ export default function StockBuyModal({ stock }) {
           </FormControl>
           {/* Divider */}
           <hr></hr>
-          <Button type="submit" variant="contained">New buy order</Button>
+          <Button type="submit" variant="contained">New order</Button>
           <Button variant="contained" onClick={handleClose} sx={{ backgroundColor: 'red', ":hover": { backgroundColor: '#940A00' } }}>Cancel Order</Button>
         </Box>
       </Modal>

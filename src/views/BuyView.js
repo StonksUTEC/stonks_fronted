@@ -10,8 +10,7 @@ const BuyView = () => {
         <Sidebar></Sidebar>
         <div className='dashboard-content'>
         <HeaderView/>
-
-            <h2>Buy</h2>
+            <h2>Market</h2>
             <StocksBuyComponent/>
         </div>
     </div>
